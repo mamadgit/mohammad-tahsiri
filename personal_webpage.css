@@ -95,56 +95,56 @@ a {
 
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian_Thin.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian_Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian_Extra_Light.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian_Extra_Light.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian_Light.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian_Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian_Semi_Bold.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian_Semi_Bold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian_Bold.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian_Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian_Extra_Bold.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian_Extra_Bold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Nian";
-  src: url("../assets/fonts/w_Nian_Black.ttf") format("truetype");
+  src: url("assets/fonts/w_Nian_Black.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
