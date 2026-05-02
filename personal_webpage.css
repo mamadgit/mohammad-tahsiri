@@ -605,7 +605,7 @@ li {
   }
   ul ul {
     text-align: justify;
-    padding: 1rem 1.5rem 0;
+    padding: 1rem 0.5rem 1.5rem 1.5rem;
     font-size: 1.24rem;
     margin: 0;
   }
