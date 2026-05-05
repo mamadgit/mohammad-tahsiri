@@ -1,0 +1,8 @@
+node_modules
+SCSS
+*.jpg
+gsap-public
+assets
+MaryamSoft
+*.json
+server.js
