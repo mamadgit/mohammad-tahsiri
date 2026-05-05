@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Webpage</title>
+    <link rel="stylesheet" href="personal_webpage.css">
+    <script src="personal_webpage.js" defer></script>
+</head> 
+<body>
+    <header class="site-header">
+        <div class="textfonts"><h1>Amir Mohammad Tahsiri</h1></div>
+        <div class="menu-toggle" id="mobile-menu">
+            <!-- <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span> -->
+            Menu
+        </div>
+        <nav class="nav" id="nav-links">
+                <a href="#aboot">About Me</a>
+                <a href="#proexp">Projects</a>
+                <a href="#publications">Publications</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- ========================================== -->
+        <!--               ABOUT ME SECTION             -->
+        <!-- ========================================== -->
+        <div class="abootme">
+            <div class="grid-row">
+                <div class="about-image">
+                <img src="IMG_20260121_121827.jpg" alt="About Me Image" />
+                </div>
+                <div class="textfonts">
+                    <section id="aboot" class="about-section">
+                        <p>
+                            My name is Amir Mohammad Tahsiri. I'm a Computer Science programmer and algorithm developer, mainly focused on developing algorithms for how intelligent systems reason, which serves as the foundation for modern Explainable AI (XAI).
+                        </p>
+                        <p>
+                            I would say what sets my path apart is the deliberate detour I took through researching human cognition. Rather than treating intelligence of AI purely as an optimization problem, I grounded my graduate research (MSc) in Cognitive Science to begin by understaning intelligence from the inside out — how humans reason, form beliefs, and navigate uncertainty and building computational (agent-based) models based on it.
+                        </p>
+                        <p>
+                            This interdisciplinary foundation has given me strength in both the theory and practice of intelligent systems. I have worked extensively with Algorithm Design and Computational Modelling, and more recently have focused on strengthening my hands-on programming skills through front-end implementation work. In parallel, my background in Cognitive Science includes practical experience in experimental Psychology and designing and running eye-tracking experiments, allowing me to build systems grounded in both theory and real-world implementation.
+                        </p>
+                </section>
+                </div>
+            </div>
+        </div>
+        <!-- ========================================== -->
+        <!--               PROJECTS SECTION             -->
+        <!-- ========================================== -->
+        <section id="proexp" class="projects">
+            <div class="textfonts">
+                <div class="project-box">
+                    <h2>Projects</h2>
+                    <div class="expandall">Expand all</div>
+                    <!-- Added cursor: pointer so it feels like a button -->
+                </div>
+                    <!--PERSONAL WEBSITE-->
+                    <div class="project-item">
+                        <h4 class="collapsible-btn">
+                            <span class="header-text">
+                                Design and Implementation of Personal Portfolio Website
+                                <span class="research-meta">Personal Project, Mar 2026 - Apr 2026</span>
+                            </span>
+                            <span class="icon">+</span>
+                        </h4>
+                        <div class="collapsible-content">
+                            <ul>
+                                <li>
+                                    <div class="project-grid">
+                                        <!-- Column 1: Text -->
+                                        <div class="project-text">
+                                            Highly optimized for smartphone viewing, this responsive portfolio was built from scratch using HTML, CSS(specifically SCSS), vanilla JavaScript, and GSAP to deliver maximum screen visibility while maintaining seamless, on-demand access to site navigation. Key features include:
+                                        </div>
+                                        <!-- Column 2: QR Code -->
+                                        <div class="project-qr">
+                                            <!-- Replace src with your actual QR code path -->
+                                            <img src="QR-Code.png" alt="Scan to view on mobile">
+                                            <span>Scan for smartphone!</span>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li>Engineered a context-aware global header that adapts to scroll direction to maximize mobile viewport space, whilst simultaneously including a custom logic to disable the header reveal whenever a project's section is open to prevent UI overlap.</li>
+                                        <li>Implemented dynamic sticky positioning for project titles using GSAP, ensuring users retain crucial context while scrolling through detailed, long-form content.</li>
+                                        <li>Developed a frictionless accordion interface supporting multiple intuitive closing methods, including active toggling, automated cross-closing, and scroll-triggered unpinning via GSAP onLeaveBack.</li>
+                                        <li>Architected a custom JavaScript state management system using control flags to perfectly sequence concurrent animations, completely eliminating race conditions and layout shifts during rapid user inputs. </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--SUPICS WEBSITE-->
+                    <div class="project-item">
+                        <h4 class="collapsible-btn">
+                            <span class="header-text">
+                                Design and Implementation of SuPics Factory Website
+                                <span class="research-meta">Freelance Programming, Oct 2025 - Jan 2026</span>
+                            </span>
+                            <span class="icon">+</span>
+                        </h4>
+                        <div class="collapsible-content">
+                            <ul>
+                                <li>Built a responsive front-end website from the ground up using HTML, CSS (specifically SCSS), and vanilla JavaScript. It's unique features are:
+                                    <ul>
+                                        <li>Engineered custom scroll position restoration logic to resolve conflicts introduced by GSAP's ScrollSmoother, leveraging the Navigation Timing API with legacy fallbacks to distinguish reload vs. fresh navigation events.</li>
+                                        <li>Designed a decoupled navigation state system using sessionStorage and the History API for clean, hash-free URLs.</li>
+                                        <li>Prevented “flash of wrong theme” via a boot-time IIFE with localStorage persistence and system preference detection through matchMedia.</li>
+                                        <li>Implemented scroll-driven interactions including hero snap behavior, pinned header, and smooth anchor navigation using GSAP ScrollTrigger and ScrollSmoother.</li>
+                                        <li>Built a custom per-character text splitting utility as a lightweight alternative to GSAP's SplitText library, enabling scroll-triggered staggered character reveal animations across the site.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- BIBBREEZE -->
+                    <div class="project-item">
+                        <h4 class="collapsible-btn">
+                            <!-- Wrap the title and the meta tag together -->
+                            <span class="header-text">
+                                BibBreeze: A <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span> 
+                                 package for Automating Bibliography Data Reconstruction
+                                <span class="research-meta">Independent Project, Jul 2024 - Mar 2025</span>
+                            </span>
+                            <span class="icon">+</span>
+                        </h4>
+                        <!-- Wrap everything that should collapse inside this div -->
+                        <div class="collapsible-content">
+                            <ul>
+                                <li>Developed the first-ever
+                                    <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span> 
+                                     package (written in 
+                                    <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span>3 ) 
+                                     whose unique algorithms automate the reconstruction of missing and/or unorganized bibliography data. Its features are:
+                                    <ul>
+                                    <li>Enhanced parsing by taking advantange of unique token identifiers and regex commands to extract bundled entry fields, significantly reducing iteration time.</li>
+                                    <li>Using innovative logic, it distinguhses entry subtypes for proceedings papers that are presented, published in journals, or edited in books whom all share the same BibTeX identifer (@inproceedings).</li>
+                                    <li>Adheres to strict APA 7th edition referencing guidelines with more styles to come.</li>
+                                    <li>Published this work with focus on the algorithms' creativity and efficiency in the journal of TUGBoat (2025) which was identified as one of their most advanced manuscripts of that issue.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <button class="github-history-btn" data-repo="mamadgit/BibBreeze">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a5.4 5.4 0 0 0-1.5-3.8 5.3 5.3 0 0 0-.1-3.8s-1.2-.4-3.9 1.8a13 13 0 0 0-7 0C4.2 2.6 3 3 3 3a5.3 5.3 0 0 0-.1 3.8A5.4 5.4 0 0 0 1.5 10.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"/><path d="M9 18c-4.5 1-5-2.5-7-3"/></svg>
+                        View Commit History
+                    </button> -->
+                    <!-- EXPLORING COMPUTATIONALLY GROUNDED... -->
+                    <div class="project-item">
+                        <h4 class="collapsible-btn">
+                            <!-- Wrap the title and the meta tag together -->
+                            <span class="header-text">
+                                Exploring computationally grounded properties in formal semantics for agent reasoning
+                                <span class="research-meta">University of West of England-Bristol, Jan 2022 - Jan 2024</span>
+                            </span>
+                            <span class="icon">+</span>
+                        </h4>
+                        <!-- Wrap everything that should collapse inside this div -->
+                        <div class="collapsible-content">
+                            <ul>
+                                <li>Analysed and compared existing semantical strucutres on formally modelling agents' knowledge and reasoning process to conclude a new perspective regarding the design of said structures.
+                                    <ul>
+                                        <li>Most research in this area agree to reach the computationally grounded threshold of semantical
+                                        structures, the agents' local states must be considered alongside the system's global states. However, disagreement arises if a structure adequately captures the local states to reach this threshold.</li>
+                                        <li>This research review presents various research with different designs for their agents' local states and by comparision, concludes that computationally grounding is not threshold-based but gradational.</li>
+                                        <li>This comparision has been shown through hypotheical scenarios (i.e., swarm of self-driving cars).</li>
+                                        <li>The theoretical and practical comparision portray a new perspective towards designing semantical structures; The adequate level of computational grounding for the agents' local states must consider the their environment; certain environments may require more abstract designs.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- USING MACHINE LEARNING ALGORITHMS... -->
+                    <div class="project-item">
+                        <h4 class="collapsible-btn">
+                            <!-- Wrap the title and the meta tag together -->
+                            <span class="header-text">
+                                Using machine learning algorithms to perform analysis and predictions on given data sets
+                                <span class="research-meta">University of West of England-Bristol, Jan 2023 - Mar 2023</span>
+                            </span>
+                            <span class="icon">+</span>
+                        </h4>
+                        <!-- Wrap everything that should collapse inside this div -->
+                        <div class="collapsible-content">
+                            <ul>
+                                <li>Physical health analysis of pregnant women (anonymous).
+                                    <ul>
+                                        <li>The objective was to preform analysis on a given data set of pregnant womens' physical health and develop predictive models for gestational diabetes risk.</li>
+                                        <li>The dataset was accumulated from their regular health check-ups. The parameters included glucose levels, blood pressure, skin thickness, insulin levels, BMI, diabetes pedigree function, and age.</li>
+                                        <li>Utilised Python for data processing and analysis, with libraries such as NumPy, Pandas for cleaning and classifying the data and Matplotlib, and Seaborn for visualising and predicting outcomes.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                        <!-- DEVELOPMENT OF A GRAPH BASED MODEL... -->
+                    <div class="project-item">
+                        <h4 class="collapsible-btn">
+                            <!-- Wrap the title and the meta tag together -->
+                            <span class="header-text">
+                                Development of a graph-based model for trust management in collaborative work
+                                <span class="research-meta">University of Kurdistan (Msc thesis), Jan 2019 - Jul 2020</span>
+                            </span>
+                            <span class="icon">+</span>
+                        </h4>
+                        <!-- Wrap everything that should collapse inside this div -->
+                        <div class="collapsible-content">
+                            <ul>
+                                <li>Researched how trust is distributed and propagated amongst agents using agent-based modelling.
+                                    <ul>
+                                        <li>Modeled how agents trust in their environment in NetLogo, incorporating influencing parameters.</li>
+                                        <li>Applied Graph Theory, Game Theory concepts to identify agents' most efficient collaboration form.</li>
+                                        <li>Ran multiple simulations to identify the value of each influecning parameter for reaching the optimal collaboration form.</li>
+                                        <li>Prepared a paper based on this research (2021), later published in SN COMPUT. SCI.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- COORDINATOR OF EYE-TRACKING LAB...-->
+                    <div class="project-item">
+                        <h4 class="collapsible-btn">
+                            <!-- Wrap the title and the meta tag together -->
+                            <span class="header-text">
+                                Coordinator of eye-tracking laboratory for clinical studies and UX research
+                                <span class="research-meta">Shahid Beheshti Institute for Cognitive & Brain Sciences (research assistant), Sep 2016 - Dec 2018</span>
+                            </span>
+                            <span class="icon">+</span>
+                        </h4>
+                        <!-- Wrap everything that should collapse inside this div -->
+                        <div class="collapsible-content">
+                            <ul>
+                                <li>Conducted various experiments from researching autisum to user experience using eye-tracking.
+                                    <ul>
+                                        <li>Desgined the experiments on the eye-tracking software (SMI & Begaze 3.7).</li>
+                                        <li>Implemented innovative techniques for more precise results; gaze calibration mid-experiment in addition to the standard calibration pre-experiment.</li>
+                                        <li>Collected data from participants.</li>
+                                        <li>Performed statistical analysis (t-test and ANOVA) on the childrens' rapid eye movements and gaze patterns obtained from four different age groups to derive meaningful results.</li>
+                                        <li>Conducted user behaviour analysis on Dijikala websites (akin to Amazon) using eye-tracking to study gaze patterns (fixations and saccades) of 55 participants for enhancing user navigation.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <!-- ========================================== -->
+        <!--             PUBLICATIONS SECTION           -->
+        <!-- ========================================== -->
+        <section id="publications" class="publications">
+            <div class="textfonts">
+                <h2>Publications</h2>
+                <p class="p-small">
+                    Tahsiri, A.M. (2025). BibBreeze: A 
+                    <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span> Package for Automating Bibliography Data Reconstruction. TUGBoat, 46(1). <a href=""  target="_blank" rel="noopener noreferrer">10.47397/tb/46-1/tb142tahsiri-bibbreeze</a>
+                </p>
+                <p class="p-small">
+                    Tahsiri, A.M. (2023). Development of a Graph-Based Model for Trust Management in Collaborative Work. SN COMPUT. SCI. 4 Article 635. <a href=""  target="_blank" rel="noopener noreferrer">https://doi: 10.1007/s42979-023-02125-0</a>
+                </p>
+            </div>
+        </section>
+        <!-- ========================================== -->
+        <!--              EDUCATION SECTION             -->
+        <!-- ========================================== -->
+        <section id="education" class="education">
+        <div class="textfonts">
+            <h2 class="section-title">Education</h2>
+
+            <div class="edu-item">
+            <div class="edu-left">
+                <div class="degree">MSc Cognitive Science <span class="undertext">(distinction)</span></div>
+                <div class="university">University of Kurdistan</div>
+            </div>
+            <div class="edu-right">
+                <div>Kurdistan, Iran</div>
+                <div>Jan 2018 - Jul 2020</div>
+            </div>
+            </div>
+
+            <div class="edu-item">
+            <div class="edu-left">
+                <div class="degree">BSc Computer Science<span class="undertext">(2:1 honours)</span></div>
+                <div class="university">Bojnourd University</div>
+            </div>
+            <div class="edu-right">
+                <div>Bojnourd, Iran</div>
+                <div>Sep 2011 - Feb 2017</div>
+            </div>
+            </div>
+
+            <div class="edu-item">
+            <div class="edu-left">
+                <div class="degree">Diploma in Mathematics & Physics</div>
+                <div class="university">Hesabi High School</div>
+            </div>
+            <div class="edu-right">
+                <div>Tehran, Iran</div>
+                <div>Sep 2010 - Jun 2011</div>
+            </div>
+            </div>
+
+        </div>
+        </section>
+        <!-- ========================================== -->
+        <!--               CONTACT SECTION              -->
+        <!-- ========================================== -->
+        <section id="contact" class="contact">
+            <div class="textfonts">
+                <h2>Contact</h2>
+                <p>
+                    Please feel free to reach out to me on any of the platforms below
+                </p>
+                <div class="contact-grid">
+                    <!-- Email Card -->
+                    <a href="mailto:mohammad_tahsiri@hotmail.com" class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Feather Icon: Mail -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <div class="contact-content">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">Reach out Anytime!</span>
+                        </div>
+                    </a>
+                    <!-- LinkedIn Card -->
+                    <a href="https://www.linkedin.com/in/mohammad-tahsiri-62a628103" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Feather Icon: Linkedin -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </div>
+                        <div class="contact-content">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-value">Connect on LinkedIn!</span>
+                        </div>
+                    </a>
+                    <!-- GitHub Card -->
+                    <a href="https://github.com/mamadgit" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Feather Icon: Github -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a5.4 5.4 0 0 0-1.5-3.8 5.3 5.3 0 0 0-.1-3.8s-1.2-.4-3.9 1.8a13 13 0 0 0-7 0C4.2 2.6 3 3 3 3a5.3 5.3 0 0 0-.1 3.8A5.4 5.4 0 0 0 1.5 10.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"/><path d="M9 18c-4.5 1-5-2.5-7-3"/></svg>
+                        </div>
+                        <div class="contact-content">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">View my Repositories!</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ========================================== -->
+    <!--                   SCRIPTS                  -->
+    <!-- ========================================== -->
+<!-- GSAP Core -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<!-- ScrollTrigger Plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+</body>
+</html>
