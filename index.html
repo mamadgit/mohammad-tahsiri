@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Webpage</title>
-    <link rel="stylesheet" href="personal_webpage.css">
+    <link rel="stylesheet" href="CSS/personal_webpage.css">
     <script src="personal_webpage.js" defer></script>
 </head> 
 <body>
@@ -18,7 +18,7 @@
         </div>
         <nav class="nav" id="nav-links">
                 <a href="#aboot">About Me</a>
-                <a href="#proexp">Projects</a>
+                <a href="#proexp">Research & Projects</a>
                 <a href="#publications">Publications</a>
                 <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
@@ -37,30 +37,45 @@
                 <div class="textfonts">
                     <section id="aboot" class="about-section">
                         <p>
-                            My name is Amir Mohammad Tahsiri. I'm a Computer Science programmer and algorithm developer, mainly focused on developing algorithms for how intelligent systems reason, which serves as the foundation for modern Explainable AI (XAI).
+                            My name is Amir Mohammad Tahsiri. I'm a Computer Science programmer and algorithm developer, mainly focused on developing algorithms for how intelligent systems reason - a field formally known as Explainable Artificial Intelligence (XAI).
                         </p>
                         <p>
-                            I would say what sets my path apart is the deliberate detour I took through researching human cognition. Rather than treating intelligence of AI purely as an optimization problem, I grounded my graduate research (MSc) in Cognitive Science to begin by understaning intelligence from the inside out — how humans reason, form beliefs, and navigate uncertainty and building computational (agent-based) models based on it.
+                            I would say what sets my path apart is the deliberate detour I took through researching human cognition. Rather than treating intelligence of AI purely as an optimization problem, I grounded my graduate research (MSc) in Cognitive Science to begin by understaning intelligence from the inside out — how humans reason, form beliefs, and navigate uncertainty and building models based on it.
                         </p>
                         <p>
-                            This interdisciplinary foundation has given me strength in both the theory and practice of intelligent systems. I have worked extensively with Algorithm Design and Computational Modelling, and more recently have focused on strengthening my hands-on programming skills through front-end implementation work. In parallel, my background in Cognitive Science includes practical experience in experimental Psychology and designing and running eye-tracking experiments, allowing me to build systems grounded in both theory and real-world implementation.
+                            This interdisciplinary foundation has given me strength in both the theory and practice of intelligent systems. I have worked extensively with Algorithm Design and Computational Modelling, and more recently have focused on strengthening my hands-on programming skills through system-level implementation work. In parallel, my background in Cognitive Science includes practical experience in experimental Psychology and designing and running eye-tracking experiments, allowing me to build systems grounded in both theory and real-world implementation.
                         </p>
                 </section>
                 </div>
             </div>
         </div>
         <!-- ========================================== -->
-        <!--               PROJECTS SECTION             -->
+        <!--        RESEARCH & PROJECTS SECTION         -->
         <!-- ========================================== -->
         <section id="proexp" class="projects">
             <div class="textfonts">
                 <div class="project-box">
-                    <h2>Projects</h2>
-                    <div class="expandall">Expand all</div>
-                    <!-- Added cursor: pointer so it feels like a button -->
+                    <h2>Research & Projects</h2>
+                    
+                    <div class="controls-group">
+                        <!-- New Dropdown -->
+                        <div class="sort-dropdown">
+                            <button class="sort-toggle-btn">
+                                Sort By 
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                            </button>
+                            <div class="sort-menu">
+                                <button class="sort-option active" data-sort="all">Default Order</button>
+                                <button class="sort-option" data-sort="project">Projects First</button>
+                                <button class="sort-option" data-sort="research">Research First</button>
+                            </div>
+                        </div>
+                        <!-- Your existing expand all -->
+                        <div class="expandall">Expand all</div>
+                    </div>
                 </div>
                     <!--PERSONAL WEBSITE-->
-                    <div class="project-item">
+                    <div class="project-item" data-category="projects" data-original-order="1">
                         <h4 class="collapsible-btn">
                             <span class="header-text">
                                 Design and Implementation of Personal Portfolio Website
@@ -94,7 +109,7 @@
                         </div>
                     </div>
                     <!--SUPICS WEBSITE-->
-                    <div class="project-item">
+                    <div class="project-item" data-category="projects" data-original-order="2">
                         <h4 class="collapsible-btn">
                             <span class="header-text">
                                 Design and Implementation of SuPics Factory Website
@@ -117,13 +132,13 @@
                         </div>
                     </div>
                     <!-- BIBBREEZE -->
-                    <div class="project-item">
+                    <div class="project-item" data-category="projects" data-original-order="3">
                         <h4 class="collapsible-btn">
                             <!-- Wrap the title and the meta tag together -->
                             <span class="header-text">
                                 BibBreeze: A <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span> 
                                  package for Automating Bibliography Data Reconstruction
-                                <span class="research-meta">Independent Project, Jul 2024 - Mar 2025</span>
+                                <span class="research-meta">Independent Research, Jul 2024 - Mar 2025</span>
                             </span>
                             <span class="icon">+</span>
                         </h4>
@@ -150,12 +165,12 @@
                         View Commit History
                     </button> -->
                     <!-- EXPLORING COMPUTATIONALLY GROUNDED... -->
-                    <div class="project-item">
+                    <div class="project-item" data-category="research" data-original-order="4">
                         <h4 class="collapsible-btn">
                             <!-- Wrap the title and the meta tag together -->
                             <span class="header-text">
                                 Exploring computationally grounded properties in formal semantics for agent reasoning
-                                <span class="research-meta">University of West of England-Bristol, Jan 2022 - Jan 2024</span>
+                                <span class="research-meta">University of West of England-Bristol (graduate research), Jan 2022 - Jan 2024</span>
                             </span>
                             <span class="icon">+</span>
                         </h4>
@@ -175,12 +190,12 @@
                         </div>
                     </div>
                     <!-- USING MACHINE LEARNING ALGORITHMS... -->
-                    <div class="project-item">
+                    <div class="project-item" data-category="research" data-original-order="5">
                         <h4 class="collapsible-btn">
                             <!-- Wrap the title and the meta tag together -->
                             <span class="header-text">
                                 Using machine learning algorithms to perform analysis and predictions on given data sets
-                                <span class="research-meta">University of West of England-Bristol, Jan 2023 - Mar 2023</span>
+                                <span class="research-meta">University of West of England-Bristol (research project), Jan 2023 - Mar 2023</span>
                             </span>
                             <span class="icon">+</span>
                         </h4>
@@ -198,7 +213,7 @@
                         </div>
                     </div>
                         <!-- DEVELOPMENT OF A GRAPH BASED MODEL... -->
-                    <div class="project-item">
+                    <div class="project-item" data-category="research" data-original-order="6">
                         <h4 class="collapsible-btn">
                             <!-- Wrap the title and the meta tag together -->
                             <span class="header-text">
@@ -222,7 +237,7 @@
                         </div>
                     </div>
                     <!-- COORDINATOR OF EYE-TRACKING LAB...-->
-                    <div class="project-item">
+                    <div class="project-item" data-category="research" data-original-order="7">
                         <h4 class="collapsible-btn">
                             <!-- Wrap the title and the meta tag together -->
                             <span class="header-text">
@@ -269,6 +284,18 @@
         <section id="education" class="education">
         <div class="textfonts">
             <h2 class="section-title">Education</h2>
+
+            <!-- <div class="edu-item">
+            <div class="edu-left">
+                <div class="degree">PhD Computer Science <span class="undertext">(fully funded scholorship - incomplete)</span></div>
+                <div class="undertext"></div>
+                <div class="university">University of West of England</div>
+            </div>
+            <div class="edu-right">
+                <div>Bristol, UK</div>
+                <div>Jan 2022 - Jan 2024</div>
+            </div>
+            </div> -->
 
             <div class="edu-item">
             <div class="edu-left">
@@ -356,10 +383,21 @@
     <!-- ========================================== -->
     <!--                   SCRIPTS                  -->
     <!-- ========================================== -->
-<!-- GSAP Core -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<!-- ScrollTrigger Plugin -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
+    <!-- GSAP Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- <div id="gh-modal" class="modal-overlay hidden">
+        <div class="vs-code-window">
+            <div class="vs-code-header">
+                <span class="file-name">Git History: <span id="repo-title">...</span></span>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="vs-code-body" id="gh-commit-list">
+            </div>
+        </div>
+    </div> -->
 </body>
 </html>
