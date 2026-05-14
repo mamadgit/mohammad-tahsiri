@@ -707,9 +707,9 @@ li {
 @media (max-width: 786px) {
   .controls-group {
     margin-left: auto; /* Pushes the group to the right */
-    display: inline;
+    display: grid;
     align-items: center;
-    gap: 1.5rem; /* Space between sort and expand */
+    gap: 0.5rem; /* Space between sort and expand */
   }
 }
 /* Dropdown Container */
