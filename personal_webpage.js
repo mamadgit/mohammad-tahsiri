@@ -98,74 +98,72 @@ document.addEventListener("DOMContentLoaded", function() {
 // ==========================================
 //#region    FILTER/SORT BUTTON
 // ==========================================
-  // const sortToggleBtn = document.querySelector('.sort-toggle-btn');
-  // const sortMenu = document.querySelector('.sort-menu');
-  // const sortOptions = document.querySelectorAll('.sort-option');
-  // const projectItems = document.querySelectorAll('.project-item');
-  
-  // // In your HTML, .project-item elements are direct children of .textfonts
-  // const container = document.querySelector('.textfonts');
+  const sortToggleBtn = document.querySelector('.sort-toggle-btn');
+  const sortMenu = document.querySelector('.sort-menu');
+  const sortOptions = document.querySelectorAll('.sort-option');
+  const projectItems = document.querySelectorAll('.project-item');
+  const container = document.querySelector('.contain');//We use a arbitrary class contain as the container because textfonts has attributes, it messes with the layout to be use as a container
 
-  // // 1. Toggle dropdown menu
-  // sortToggleBtn.addEventListener('click', (e) => {
-  //     e.stopPropagation(); 
-  //     sortMenu.classList.toggle('show');
-  // });
+  // 1. Toggle dropdown menu
+  sortToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      sortMenu.classList.toggle('show');
+  });
 
-  // // 2. Close dropdown when clicking outside
-  // document.addEventListener('click', (e) => {
-  //     if (!sortMenu.contains(e.target) && e.target !== sortToggleBtn) {
-  //         sortMenu.classList.remove('show');
-  //     }
-  // });
+  // 2. Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+      if (!sortMenu.contains(e.target) && e.target !== sortToggleBtn) {
+          sortMenu.classList.remove('show');
+      }
+  });
 
-  // // 3. Handle Sorting
-  // sortOptions.forEach(btn => {
-  //     btn.addEventListener('click', () => {
-  //         // Update active state
-  //         sortOptions.forEach(b => b.classList.remove('active'));
-  //         btn.classList.add('active');
-  //         sortMenu.classList.remove('show'); // Hide menu
+  // 3. Handle Sorting
+  sortOptions.forEach(btn => {
+      btn.addEventListener('click', () => {
+          // Update active state
+          sortOptions.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          sortMenu.classList.remove('show'); // Hide menu
 
-  //         const sortBy = btn.getAttribute('data-sort'); 
-  //         const itemsArray = Array.from(projectItems);
+          const sortBy = btn.getAttribute('data-sort'); 
+          const itemsArray = Array.from(projectItems);
 
-  //         itemsArray.sort((a, b) => {
-  //             const catA = a.getAttribute('data-category'); // e.g., 'projects' or 'research'
-  //             const catB = b.getAttribute('data-category');
+          itemsArray.sort((a, b) => {
+              const catA = a.getAttribute('data-category'); // e.g., 'projects' or 'research'
+              const catB = b.getAttribute('data-category');
               
-  //             // Using corrected data-original-order
-  //             const orderA = parseInt(a.getAttribute('data-original-order'), 10);
-  //             const orderB = parseInt(b.getAttribute('data-original-order'), 10);
+              // Using corrected data-original-order
+              const orderA = parseInt(a.getAttribute('data-original-order'), 10);
+              const orderB = parseInt(b.getAttribute('data-original-order'), 10);
 
-  //             if (sortBy === 'research') {
-  //                 if (catA === 'research' && catB !== 'research') return -1;
-  //                 if (catA !== 'research' && catB === 'research') return 1;
-  //                 return orderA - orderB; 
-  //             } 
-  //             else if (sortBy === 'project') {
-  //                 // Note: checks against 'projects' based on your data-category HTML
-  //                 if (catA === 'projects' && catB !== 'projects') return -1;
-  //                 if (catA !== 'projects' && catB === 'projects') return 1;
-  //                 return orderA - orderB;
-  //             } 
-  //             else {
-  //                 // 'all' / Default
-  //                 return orderA - orderB;
-  //             }
-  //         });
+              if (sortBy === 'research') {
+                  if (catA === 'research' && catB !== 'research') return -1;
+                  if (catA !== 'research' && catB === 'research') return 1;
+                  return orderA - orderB; 
+              } 
+              else if (sortBy === 'project') {
+                  // Note: checks against 'projects' based on your data-category HTML
+                  if (catA === 'projects' && catB !== 'projects') return -1;
+                  if (catA !== 'projects' && catB === 'projects') return 1;
+                  return orderA - orderB;
+              } 
+              else {
+                  // 'all' / Default
+                  return orderA - orderB;
+              }
+          });
 
-  //         // Re-append items to DOM
-  //         itemsArray.forEach(item => {
-  //             container.appendChild(item);
-  //         });
+          // Re-append items to DOM
+          itemsArray.forEach(item => {
+              container.appendChild(item);
+          });
 
-  //         // Refresh ScrollTrigger to recalculate heights and pin positions
-  //         if (typeof ScrollTrigger !== "undefined") {
-  //             ScrollTrigger.refresh();
-  //         }
-  //     });
-  // });
+          // Refresh ScrollTrigger to recalculate heights and pin positions
+          if (typeof ScrollTrigger !== "undefined") {
+              ScrollTrigger.refresh();
+          }
+      });
+  });
 //#endregion
 
 // ==========================================

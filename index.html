@@ -54,213 +54,215 @@
         <!-- ========================================== -->
         <section id="proexp" class="projects">
             <div class="textfonts">
-                <div class="project-box">
-                    <h2>Research & Projects</h2>
+                <div class="contain">
+                    <div class="project-box">
+                        <h2>Research & Projects</h2>
                     
-                    <div class="controls-group">
-                        <!-- New Dropdown -->
-                        <div class="sort-dropdown">
-                            <button class="sort-toggle-btn">
-                                Sort By 
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                            </button>
-                            <div class="sort-menu">
-                                <button class="sort-option active" data-sort="all">Default Order</button>
-                                <button class="sort-option" data-sort="project">Projects First</button>
-                                <button class="sort-option" data-sort="research">Research First</button>
+                        <div class="controls-group">
+                            <!-- New Dropdown -->
+                            <div class="sort-dropdown">
+                                <button class="sort-toggle-btn">
+                                    Sort By
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                </button>
+                                <div class="sort-menu">
+                                    <button class="sort-option active" data-sort="all">Default Order</button>
+                                    <button class="sort-option" data-sort="project">Projects First</button>
+                                    <button class="sort-option" data-sort="research">Research First</button>
+                                </div>
+                            </div>
+                            <!-- Your existing expand all -->
+                            <div class="expandall">Expand all</div>
+                        </div>
+                    </div>
+                        <!--PERSONAL WEBSITE-->
+                        <div class="project-item" data-category="projects" data-original-order="1">
+                            <h4 class="collapsible-btn">
+                                <span class="header-text">
+                                    Design and Implementation of Personal Portfolio Website
+                                    <span class="research-meta">Personal Project, Mar 2026 - Apr 2026</span>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>
+                                        <div class="project-grid">
+                                            <!-- Column 1: Text -->
+                                            <div class="project-text">
+                                                Highly optimized for smartphone viewing, this responsive portfolio was built from scratch using HTML, CSS(specifically SCSS), vanilla JavaScript, and GSAP to deliver maximum screen visibility while maintaining seamless, on-demand access to site navigation. Key features include:
+                                            </div>
+                                            <!-- Column 2: QR Code -->
+                                            <div class="project-qr">
+                                                <!-- Replace src with your actual QR code path -->
+                                                <img src="QR-Code.png" alt="Scan to view on mobile">
+                                                <span>Scan for smartphone!</span>
+                                            </div>
+                                        </div>
+                                        <ul>
+                                            <li>Engineered a context-aware global header that adapts to scroll direction to maximize mobile viewport space, whilst simultaneously including a custom logic to disable the header reveal whenever a project's section is open to prevent UI overlap.</li>
+                                            <li>Implemented dynamic sticky positioning for project titles using GSAP, ensuring users retain crucial context while scrolling through detailed, long-form content.</li>
+                                            <li>Developed a frictionless accordion interface supporting multiple intuitive closing methods, including active toggling, automated cross-closing, and scroll-triggered unpinning via GSAP onLeaveBack.</li>
+                                            <li>Architected a custom JavaScript state management system using control flags to perfectly sequence concurrent animations, completely eliminating race conditions and layout shifts during rapid user inputs. </li>
+                                        </ul>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <!-- Your existing expand all -->
-                        <div class="expandall">Expand all</div>
-                    </div>
+                        <!--SUPICS WEBSITE-->
+                        <div class="project-item" data-category="projects" data-original-order="2">
+                            <h4 class="collapsible-btn">
+                                <span class="header-text">
+                                    Design and Implementation of SuPics Factory Website
+                                    <span class="research-meta">Freelance Programming, Oct 2025 - Jan 2026</span>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>Built a responsive front-end website from the ground up using HTML, CSS (specifically SCSS), and vanilla JavaScript. It's unique features are:
+                                        <ul>
+                                            <li>Engineered custom scroll position restoration logic to resolve conflicts introduced by GSAP's ScrollSmoother, leveraging the Navigation Timing API with legacy fallbacks to distinguish reload vs. fresh navigation events.</li>
+                                            <li>Designed a decoupled navigation state system using sessionStorage and the History API for clean, hash-free URLs.</li>
+                                            <li>Prevented “flash of wrong theme” via a boot-time IIFE with localStorage persistence and system preference detection through matchMedia.</li>
+                                            <li>Implemented scroll-driven interactions including hero snap behavior, pinned header, and smooth anchor navigation using GSAP ScrollTrigger and ScrollSmoother.</li>
+                                            <li>Built a custom per-character text splitting utility as a lightweight alternative to GSAP's SplitText library, enabling scroll-triggered staggered character reveal animations across the site.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- BIBBREEZE -->
+                        <div class="project-item" data-category="projects" data-original-order="3">
+                            <h4 class="collapsible-btn">
+                                <!-- Wrap the title and the meta tag together -->
+                                <span class="header-text">
+                                    BibBreeze: A <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span>
+                                     package for Automating Bibliography Data Reconstruction
+                                    <span class="research-meta">Independent Project, Jul 2024 - Mar 2025</span>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <!-- Wrap everything that should collapse inside this div -->
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>Developed the first-ever
+                                        <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span>
+                                         package (written in
+                                        <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span>3 )
+                                         whose unique algorithms automate the reconstruction of missing and/or unorganized bibliography data. Its features are:
+                                        <ul>
+                                        <li>Enhanced parsing by taking advantange of unique token identifiers and regex commands to extract bundled entry fields, significantly reducing iteration time.</li>
+                                        <li>Using innovative logic, it distinguhses entry subtypes for proceedings papers that are presented, published in journals, or edited in books whom all share the same BibTeX identifer (@inproceedings).</li>
+                                        <li>Adheres to strict APA 7th edition referencing guidelines with more styles to come.</li>
+                                        <li>Published this work with focus on the algorithms' creativity and efficiency in the journal of TUGBoat (2025) which was identified as one of their most advanced manuscripts of that issue.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- <button class="github-history-btn" data-repo="mamadgit/BibBreeze">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a5.4 5.4 0 0 0-1.5-3.8 5.3 5.3 0 0 0-.1-3.8s-1.2-.4-3.9 1.8a13 13 0 0 0-7 0C4.2 2.6 3 3 3 3a5.3 5.3 0 0 0-.1 3.8A5.4 5.4 0 0 0 1.5 10.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"/><path d="M9 18c-4.5 1-5-2.5-7-3"/></svg>
+                            View Commit History
+                        </button> -->
+                        <!-- EXPLORING COMPUTATIONALLY GROUNDED... -->
+                        <div class="project-item" data-category="research" data-original-order="4">
+                            <h4 class="collapsible-btn">
+                                <!-- Wrap the title and the meta tag together -->
+                                <span class="header-text">
+                                    Exploring computationally grounded properties in formal semantics for agent reasoning
+                                    <span class="research-meta">University of West of England-Bristol, Jan 2022 - Jan 2024</span>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <!-- Wrap everything that should collapse inside this div -->
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>Analysed and compared existing semantical strucutres on formally modelling agents' knowledge and reasoning process to conclude a new perspective regarding the design of said structures.
+                                        <ul>
+                                            <li>Most research in this area agree to reach the computationally grounded threshold of semantical
+                                            structures, the agents' local states must be considered alongside the system's global states. However, disagreement arises if a structure adequately captures the local states to reach this threshold.</li>
+                                            <li>This research review presents various research with different designs for their agents' local states and by comparision, concludes that computationally grounding is not threshold-based but gradational.</li>
+                                            <li>This comparision has been shown through hypotheical scenarios (i.e., swarm of self-driving cars).</li>
+                                            <li>The theoretical and practical comparision portray a new perspective towards designing semantical structures; The adequate level of computational grounding for the agents' local states must consider the their environment; certain environments may require more abstract designs.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- USING MACHINE LEARNING ALGORITHMS... -->
+                        <div class="project-item" data-category="research" data-original-order="5">
+                            <h4 class="collapsible-btn">
+                                <!-- Wrap the title and the meta tag together -->
+                                <span class="header-text">
+                                    Using machine learning algorithms to perform analysis and predictions on given data sets
+                                    <span class="research-meta">University of West of England-Bristol, Jan 2023 - Mar 2023</span>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <!-- Wrap everything that should collapse inside this div -->
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>Physical health analysis of pregnant women (anonymous).
+                                        <ul>
+                                            <li>The objective was to preform analysis on a given data set of pregnant womens' physical health and develop predictive models for gestational diabetes risk.</li>
+                                            <li>The dataset was accumulated from their regular health check-ups. The parameters included glucose levels, blood pressure, skin thickness, insulin levels, BMI, diabetes pedigree function, and age.</li>
+                                            <li>Utilised Python for data processing and analysis, with libraries such as NumPy, Pandas for cleaning and classifying the data and Matplotlib, and Seaborn for visualising and predicting outcomes.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                            <!-- DEVELOPMENT OF A GRAPH BASED MODEL... -->
+                        <div class="project-item" data-category="research" data-original-order="6">
+                            <h4 class="collapsible-btn">
+                                <!-- Wrap the title and the meta tag together -->
+                                <span class="header-text">
+                                    Development of a graph-based model for trust management in collaborative work
+                                    <span class="research-meta">University of Kurdistan (Msc thesis), Jan 2019 - Jul 2020</span>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <!-- Wrap everything that should collapse inside this div -->
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>Researched how trust is distributed and propagated amongst agents using agent-based modelling.
+                                        <ul>
+                                            <li>Modeled how agents trust in their environment in NetLogo, incorporating influencing parameters.</li>
+                                            <li>Applied Graph Theory, Game Theory concepts to identify agents' most efficient collaboration form.</li>
+                                            <li>Ran multiple simulations to identify the value of each influecning parameter for reaching the optimal collaboration form.</li>
+                                            <li>Prepared a paper based on this research (2021), later published in SN COMPUT. SCI.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- COORDINATOR OF EYE-TRACKING LAB...-->
+                        <div class="project-item" data-category="research" data-original-order="7">
+                            <h4 class="collapsible-btn">
+                                <!-- Wrap the title and the meta tag together -->
+                                <span class="header-text">
+                                    Coordinator of eye-tracking laboratory for clinical studies and UX research
+                                    <span class="research-meta">Shahid Beheshti Institute for Cognitive & Brain Sciences (research assistant), Sep 2016 - Dec 2018</span>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <!-- Wrap everything that should collapse inside this div -->
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>Conducted various experiments from researching autisum to user experience using eye-tracking.
+                                        <ul>
+                                            <li>Desgined the experiments on the eye-tracking software (SMI & Begaze 3.7).</li>
+                                            <li>Implemented innovative techniques for more precise results; gaze calibration mid-experiment in addition to the standard calibration pre-experiment.</li>
+                                            <li>Collected data from participants.</li>
+                                            <li>Performed statistical analysis (t-test and ANOVA) on the childrens' rapid eye movements and gaze patterns obtained from four different age groups to derive meaningful results.</li>
+                                            <li>Conducted user behaviour analysis on Dijikala websites (akin to Amazon) using eye-tracking to study gaze patterns (fixations and saccades) of 55 participants for enhancing user navigation.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                 </div>
-                    <!--PERSONAL WEBSITE-->
-                    <div class="project-item" data-category="projects" data-original-order="1">
-                        <h4 class="collapsible-btn">
-                            <span class="header-text">
-                                Design and Implementation of Personal Portfolio Website
-                                <span class="research-meta">Personal Project, Mar 2026 - Apr 2026</span>
-                            </span>
-                            <span class="icon">+</span>
-                        </h4>
-                        <div class="collapsible-content">
-                            <ul>
-                                <li>
-                                    <div class="project-grid">
-                                        <!-- Column 1: Text -->
-                                        <div class="project-text">
-                                            Highly optimized for smartphone viewing, this responsive portfolio was built from scratch using HTML, CSS(specifically SCSS), vanilla JavaScript, and GSAP to deliver maximum screen visibility while maintaining seamless, on-demand access to site navigation. Key features include:
-                                        </div>
-                                        <!-- Column 2: QR Code -->
-                                        <div class="project-qr">
-                                            <!-- Replace src with your actual QR code path -->
-                                            <img src="QR-Code.png" alt="Scan to view on mobile">
-                                            <span>Scan for smartphone!</span>
-                                        </div>
-                                    </div>
-                                    <ul>
-                                        <li>Engineered a context-aware global header that adapts to scroll direction to maximize mobile viewport space, whilst simultaneously including a custom logic to disable the header reveal whenever a project's section is open to prevent UI overlap.</li>
-                                        <li>Implemented dynamic sticky positioning for project titles using GSAP, ensuring users retain crucial context while scrolling through detailed, long-form content.</li>
-                                        <li>Developed a frictionless accordion interface supporting multiple intuitive closing methods, including active toggling, automated cross-closing, and scroll-triggered unpinning via GSAP onLeaveBack.</li>
-                                        <li>Architected a custom JavaScript state management system using control flags to perfectly sequence concurrent animations, completely eliminating race conditions and layout shifts during rapid user inputs. </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--SUPICS WEBSITE-->
-                    <div class="project-item" data-category="projects" data-original-order="2">
-                        <h4 class="collapsible-btn">
-                            <span class="header-text">
-                                Design and Implementation of SuPics Factory Website
-                                <span class="research-meta">Freelance Programming, Oct 2025 - Jan 2026</span>
-                            </span>
-                            <span class="icon">+</span>
-                        </h4>
-                        <div class="collapsible-content">
-                            <ul>
-                                <li>Built a responsive front-end website from the ground up using HTML, CSS (specifically SCSS), and vanilla JavaScript. It's unique features are:
-                                    <ul>
-                                        <li>Engineered custom scroll position restoration logic to resolve conflicts introduced by GSAP's ScrollSmoother, leveraging the Navigation Timing API with legacy fallbacks to distinguish reload vs. fresh navigation events.</li>
-                                        <li>Designed a decoupled navigation state system using sessionStorage and the History API for clean, hash-free URLs.</li>
-                                        <li>Prevented “flash of wrong theme” via a boot-time IIFE with localStorage persistence and system preference detection through matchMedia.</li>
-                                        <li>Implemented scroll-driven interactions including hero snap behavior, pinned header, and smooth anchor navigation using GSAP ScrollTrigger and ScrollSmoother.</li>
-                                        <li>Built a custom per-character text splitting utility as a lightweight alternative to GSAP's SplitText library, enabling scroll-triggered staggered character reveal animations across the site.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- BIBBREEZE -->
-                    <div class="project-item" data-category="projects" data-original-order="3">
-                        <h4 class="collapsible-btn">
-                            <!-- Wrap the title and the meta tag together -->
-                            <span class="header-text">
-                                BibBreeze: A <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span> 
-                                 package for Automating Bibliography Data Reconstruction
-                                <span class="research-meta">Independent Project, Jul 2024 - Mar 2025</span>
-                            </span>
-                            <span class="icon">+</span>
-                        </h4>
-                        <!-- Wrap everything that should collapse inside this div -->
-                        <div class="collapsible-content">
-                            <ul>
-                                <li>Developed the first-ever
-                                    <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span> 
-                                     package (written in 
-                                    <span class="latex-logo"> L<span class="latex-a">a</span>T<span class="latex-e">e</span>X </span>3 ) 
-                                     whose unique algorithms automate the reconstruction of missing and/or unorganized bibliography data. Its features are:
-                                    <ul>
-                                    <li>Enhanced parsing by taking advantange of unique token identifiers and regex commands to extract bundled entry fields, significantly reducing iteration time.</li>
-                                    <li>Using innovative logic, it distinguhses entry subtypes for proceedings papers that are presented, published in journals, or edited in books whom all share the same BibTeX identifer (@inproceedings).</li>
-                                    <li>Adheres to strict APA 7th edition referencing guidelines with more styles to come.</li>
-                                    <li>Published this work with focus on the algorithms' creativity and efficiency in the journal of TUGBoat (2025) which was identified as one of their most advanced manuscripts of that issue.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- <button class="github-history-btn" data-repo="mamadgit/BibBreeze">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a5.4 5.4 0 0 0-1.5-3.8 5.3 5.3 0 0 0-.1-3.8s-1.2-.4-3.9 1.8a13 13 0 0 0-7 0C4.2 2.6 3 3 3 3a5.3 5.3 0 0 0-.1 3.8A5.4 5.4 0 0 0 1.5 10.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4"/><path d="M9 18c-4.5 1-5-2.5-7-3"/></svg>
-                        View Commit History
-                    </button> -->
-                    <!-- EXPLORING COMPUTATIONALLY GROUNDED... -->
-                    <div class="project-item" data-category="research" data-original-order="4">
-                        <h4 class="collapsible-btn">
-                            <!-- Wrap the title and the meta tag together -->
-                            <span class="header-text">
-                                Exploring computationally grounded properties in formal semantics for agent reasoning
-                                <span class="research-meta">University of West of England-Bristol, Jan 2022 - Jan 2024</span>
-                            </span>
-                            <span class="icon">+</span>
-                        </h4>
-                        <!-- Wrap everything that should collapse inside this div -->
-                        <div class="collapsible-content">
-                            <ul>
-                                <li>Analysed and compared existing semantical strucutres on formally modelling agents' knowledge and reasoning process to conclude a new perspective regarding the design of said structures.
-                                    <ul>
-                                        <li>Most research in this area agree to reach the computationally grounded threshold of semantical
-                                        structures, the agents' local states must be considered alongside the system's global states. However, disagreement arises if a structure adequately captures the local states to reach this threshold.</li>
-                                        <li>This research review presents various research with different designs for their agents' local states and by comparision, concludes that computationally grounding is not threshold-based but gradational.</li>
-                                        <li>This comparision has been shown through hypotheical scenarios (i.e., swarm of self-driving cars).</li>
-                                        <li>The theoretical and practical comparision portray a new perspective towards designing semantical structures; The adequate level of computational grounding for the agents' local states must consider the their environment; certain environments may require more abstract designs.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- USING MACHINE LEARNING ALGORITHMS... -->
-                    <div class="project-item" data-category="research" data-original-order="5">
-                        <h4 class="collapsible-btn">
-                            <!-- Wrap the title and the meta tag together -->
-                            <span class="header-text">
-                                Using machine learning algorithms to perform analysis and predictions on given data sets
-                                <span class="research-meta">University of West of England-Bristol, Jan 2023 - Mar 2023</span>
-                            </span>
-                            <span class="icon">+</span>
-                        </h4>
-                        <!-- Wrap everything that should collapse inside this div -->
-                        <div class="collapsible-content">
-                            <ul>
-                                <li>Physical health analysis of pregnant women (anonymous).
-                                    <ul>
-                                        <li>The objective was to preform analysis on a given data set of pregnant womens' physical health and develop predictive models for gestational diabetes risk.</li>
-                                        <li>The dataset was accumulated from their regular health check-ups. The parameters included glucose levels, blood pressure, skin thickness, insulin levels, BMI, diabetes pedigree function, and age.</li>
-                                        <li>Utilised Python for data processing and analysis, with libraries such as NumPy, Pandas for cleaning and classifying the data and Matplotlib, and Seaborn for visualising and predicting outcomes.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                        <!-- DEVELOPMENT OF A GRAPH BASED MODEL... -->
-                    <div class="project-item" data-category="research" data-original-order="6">
-                        <h4 class="collapsible-btn">
-                            <!-- Wrap the title and the meta tag together -->
-                            <span class="header-text">
-                                Development of a graph-based model for trust management in collaborative work
-                                <span class="research-meta">University of Kurdistan (Msc thesis), Jan 2019 - Jul 2020</span>
-                            </span>
-                            <span class="icon">+</span>
-                        </h4>
-                        <!-- Wrap everything that should collapse inside this div -->
-                        <div class="collapsible-content">
-                            <ul>
-                                <li>Researched how trust is distributed and propagated amongst agents using agent-based modelling.
-                                    <ul>
-                                        <li>Modeled how agents trust in their environment in NetLogo, incorporating influencing parameters.</li>
-                                        <li>Applied Graph Theory, Game Theory concepts to identify agents' most efficient collaboration form.</li>
-                                        <li>Ran multiple simulations to identify the value of each influecning parameter for reaching the optimal collaboration form.</li>
-                                        <li>Prepared a paper based on this research (2021), later published in SN COMPUT. SCI.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- COORDINATOR OF EYE-TRACKING LAB...-->
-                    <div class="project-item" data-category="research" data-original-order="7">
-                        <h4 class="collapsible-btn">
-                            <!-- Wrap the title and the meta tag together -->
-                            <span class="header-text">
-                                Coordinator of eye-tracking laboratory for clinical studies and UX research
-                                <span class="research-meta">Shahid Beheshti Institute for Cognitive & Brain Sciences (research assistant), Sep 2016 - Dec 2018</span>
-                            </span>
-                            <span class="icon">+</span>
-                        </h4>
-                        <!-- Wrap everything that should collapse inside this div -->
-                        <div class="collapsible-content">
-                            <ul>
-                                <li>Conducted various experiments from researching autisum to user experience using eye-tracking.
-                                    <ul>
-                                        <li>Desgined the experiments on the eye-tracking software (SMI & Begaze 3.7).</li>
-                                        <li>Implemented innovative techniques for more precise results; gaze calibration mid-experiment in addition to the standard calibration pre-experiment.</li>
-                                        <li>Collected data from participants.</li>
-                                        <li>Performed statistical analysis (t-test and ANOVA) on the childrens' rapid eye movements and gaze patterns obtained from four different age groups to derive meaningful results.</li>
-                                        <li>Conducted user behaviour analysis on Dijikala websites (akin to Amazon) using eye-tracking to study gaze patterns (fixations and saccades) of 55 participants for enhancing user navigation.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
             </div>
         </section>
         <!-- ========================================== -->
