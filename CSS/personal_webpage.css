@@ -704,6 +704,14 @@ li {
   gap: 1.5rem; /* Space between sort and expand */
 }
 
+@media (max-width: 786px) {
+  .controls-group {
+    margin-left: auto; /* Pushes the group to the right */
+    display: inline;
+    align-items: center;
+    gap: 1.5rem; /* Space between sort and expand */
+  }
+}
 /* Dropdown Container */
 .sort-dropdown {
   position: relative;
