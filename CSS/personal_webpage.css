@@ -8,7 +8,7 @@
   --accent-2: #7aa7ff;
   --border: #1e2230;
   --card: #161923;
-  --accent-color: #2563eb ;
+  --accent-color: #3f9a68e2 ;
   --glow-overlay: radial-gradient(circle at center center, rgba(108, 245, 210, 0.05) 0%, transparent 80%);
   --glow-overlay-header: radial-gradient(circle at center center, rgba(108, 245, 210, 0.05) 0%, transparent 80%);
 }
@@ -34,7 +34,7 @@
     --accent-2: #7aa7ff;
     --border: #1e2230;
     --card: #161923;
-    --accent-color: #2563eb ;
+    --accent-color: #3f9a68e2 ;
     --glow-overlay: radial-gradient(circle at center center, rgba(108, 245, 210, 0.05) 0%, transparent 80%);
     --glow-overlay-header: radial-gradient(circle at center center, rgba(108, 245, 210, 0.08) 0%, transparent 80%);
   }
@@ -149,8 +149,78 @@ a {
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-Light.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-LightItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-Medium.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-MediumItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-Bold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url("../assets/fonts/CormorantGaramond-BoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
 body {
-  font-family: "Nian", Arial, sans-serif;
+  font-family: "nian";
   background: var(--glow-overlay), var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -165,6 +235,9 @@ body {
   font-size: 0.8rem;
 }
 
+.textfonts {
+  font-family: "Cormorant";
+}
 .textfonts .heading {
   font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 900;
@@ -179,7 +252,7 @@ body {
   -webkit-text-stroke: 2px #fff;
 }
 .textfonts h1 {
-  font-size: clamp(40px, 6vw, 55px);
+  font-size: clamp(40px, 8vw, 65px);
   font-weight: 700;
   line-height: 1.1;
   margin: 0 0 0;
@@ -187,6 +260,7 @@ body {
   text-align: center;
   padding: 20px 0 0;
   white-space: nowrap;
+  font-style: italic;
 }
 .textfonts h2 {
   font-size: clamp(35px, 6vw, 55px);
@@ -194,6 +268,7 @@ body {
   line-height: 1.1;
   margin: 0;
   color: var(--accent-color);
+  text-align: left;
 }
 .textfonts h3 {
   font-size: clamp(30px, 6vw, 35px);
@@ -202,20 +277,27 @@ body {
   color: var(--accent-color);
 }
 .textfonts h4 {
-  font-size: clamp(25px, 6vw, 30px);
+  font-size: clamp(22px, 5vw, 26px);
   font-weight: 700;
   line-height: 1.1;
   margin: 0;
   color: var(--text);
 }
 .textfonts h5 {
-  font-size: clamp(20px, 6vw, 25px);
+  font-size: clamp(20px, 4vw, 25px);
   font-weight: 300;
   line-height: 1.1;
   margin: 0 0 24px;
   color: var(--text);
 }
+.textfonts h5.h5--accent {
+  color: var(--accent-color);
+}
+.textfonts h5.h5--compact {
+  margin: 10px 0;
+}
 .textfonts p {
+  font-family: "nian";
   text-align: justify;
   font-size: 1.55rem;
   line-height: 1.6;
@@ -224,11 +306,19 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.textfonts p.p-compact {
+  margin: 0;
+}
+.textfonts p.p-articles {
+  margin: 0 0 10px;
+  font-family: "Cormorant";
+  font-size: clamp(17px, 4vw, 22px);
+}
 .textfonts .research-meta {
   display: block;
   font-style: italic;
   font-size: 1.2865rem;
-  margin: 8px 0 10px;
+  margin: 10px 0 10px;
   transition: color 0.2s ease;
 }
 .textfonts .research-meta:hover {
@@ -236,7 +326,7 @@ body {
 }
 @media (max-width: 786px) {
   .textfonts .research-meta {
-    font-size: 1.085rem;
+    font-size: 1.0075rem;
   }
 }
 .textfonts .header-text {
@@ -417,11 +507,12 @@ body {
 .expandall, .sort {
   margin-left: auto;
   cursor: pointer;
-  color: #007BFF;
+  color: rgba(63, 154, 104, 0.8862745098);
   font-weight: bold;
   align-items: center;
   will-change: transform;
   transition: 0.3s ease;
+  font-size: 1.3rem;
 }
 
 .header-inner {
@@ -447,45 +538,6 @@ body {
   transition: background 0.6s ease, color 0.6s ease;
 }
 
-.edu-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.edu-left .degree {
-  font-weight: bold;
-  font-size: 28px;
-}
-
-.edu-left .university {
-  font-style: italic;
-  font-size: 22px;
-}
-
-.edu-right {
-  text-align: right;
-}
-
-@media (max-width: 786px) {
-  .edu-item {
-    display: block;
-    margin-bottom: 22px;
-  }
-  .edu-right {
-    text-align: left;
-    margin-top: 4px;
-  }
-  .edu-right div {
-    display: inline;
-  }
-  .edu-right div::after {
-    content: " • ";
-  }
-  .edu-right div:last-child::after {
-    content: "";
-  }
-}
 html {
   scroll-padding-top: var(--header-height);
 }
@@ -581,6 +633,7 @@ html.disable-scroll-padding {
 }
 
 ul {
+  font-family: "nian";
   margin-top: 0;
 }
 
@@ -607,6 +660,179 @@ li {
     padding: 1rem 1.5rem;
     font-size: 1.24rem;
     margin: 0;
+  }
+}
+.version-history {
+  margin: 2.25rem 0 0;
+  max-width: 100%;
+}
+
+.version-history__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.version-history__header h5 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.25rem, 4vw, 1.6rem);
+  font-weight: 700;
+}
+
+.version-history__header a {
+  color: var(--accent-color);
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.version-history__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)), #111318;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  scrollbar-color: #4fc1ff #171a22;
+  scrollbar-width: thin;
+}
+
+.version-history__track {
+  position: relative;
+  min-width: 100%;
+}
+
+.version-history__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.version-history__line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.version-history__line--main {
+  stroke: #4fc1ff;
+}
+
+.version-history__line--branch {
+  stroke: #c586c0;
+}
+
+.version-node {
+  position: absolute;
+  left: var(--node-x);
+  top: var(--node-y);
+  width: 190px;
+  min-height: 132px;
+  color: #d4d4d4;
+  text-decoration: none;
+  transform: translate(-18px, -18px);
+}
+
+.version-node__dot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 4px solid #111318;
+  border-radius: 50%;
+  background: #4fc1ff;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.version-node--branch .version-node__dot {
+  background: #c586c0;
+}
+
+.version-node--merge .version-node__dot {
+  background: #dcdcaa;
+}
+
+.version-node__label {
+  display: grid;
+  gap: 0.15rem;
+  max-width: 170px;
+  margin-top: 0.65rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  background: rgba(17, 19, 24, 0.82);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.version-node__date,
+.version-node__hash {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.version-node__date {
+  color: #9da7b3;
+  font-size: 0.78rem;
+}
+
+.version-node__hash {
+  color: #4fc1ff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.version-node--branch .version-node__hash {
+  color: #c586c0;
+}
+
+.version-node--merge .version-node__hash {
+  color: #dcdcaa;
+}
+
+.version-node__message {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #eef2f7;
+  font-size: 0.92rem;
+  line-height: 1.25;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.version-node:hover .version-node__dot,
+.version-node:focus-visible .version-node__dot {
+  transform: scale(1.25);
+  box-shadow: 0 0 0 4px rgba(79, 193, 255, 0.18);
+}
+
+.version-node:hover .version-node__label,
+.version-node:focus-visible .version-node__label {
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 786px) {
+  .version-history {
+    margin-top: 1.5rem;
+  }
+  .version-history__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .version-node {
+    width: 172px;
+  }
+  .version-node__label {
+    max-width: 152px;
   }
 }
 .btn {
@@ -706,8 +932,8 @@ li {
 
 @media (max-width: 786px) {
   .controls-group {
-    margin-left: auto; /* Pushes the group to the right */
-    display: grid;
+    margin: 10px 0; /* Pushes the group to the right */
+    display: flex;
     align-items: center;
     gap: 0.5rem; /* Space between sort and expand */
   }
@@ -732,6 +958,7 @@ li {
   font-family: inherit;
   font-size: 0.9rem;
   transition: all 0.2s ease;
+  height: 50px;
 }
 
 .sort-toggle-btn:hover {
@@ -743,7 +970,7 @@ li {
 .sort-menu {
   position: absolute;
   top: calc(100% + 0.5rem);
-  right: 0; /* Aligns dropdown menu to the right edge of the button */
+  right: auto; /* Aligns dropdown menu to the left  edge of the button */
   background: #1e1e24; /* Adjust to match your dark theme */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
@@ -819,6 +1046,8 @@ a:hover, button:hover, .menu-toggle:hover {
   flex: 1;
   justify-content: center;
   padding-bottom: 20px;
+  font-family: "Cormorant";
+  font-size: 1.35rem;
 }
 .nav a {
   transition: color 0.3s ease;
@@ -831,6 +1060,7 @@ a:hover, button:hover, .menu-toggle:hover {
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
+    font-family: "Cormorant";
   }
   .nav {
     position: fixed;
@@ -960,9 +1190,10 @@ a:hover, button:hover, .menu-toggle:hover {
 
 @media (max-width: 786px) {
   .project-box {
-    display: flex;
+    display: inline;
     z-index: 1;
     top: -3px;
+    text-align: center;
   }
 }
 .collapsible-btn {
@@ -986,9 +1217,10 @@ a:hover, button:hover, .menu-toggle:hover {
 @media (max-width: 786px) {
   .collapsible-btn {
     max-width: 100%;
-    padding: 15px 0 0;
+    padding: 15px 0;
     position: relative;
     z-index: 1;
+    min-height: 125px;
   }
   .collapsible-btn::before {
     content: "";
@@ -1017,6 +1249,46 @@ a:hover, button:hover, .menu-toggle:hover {
   margin-top: 30px;
 }
 
+.edu-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.edu-left .degree {
+  font-weight: bold;
+  font-size: clamp(24px, 5vw, 28px);
+}
+
+.edu-left .university {
+  font-style: italic;
+  font-size: clamp(18px, 3vw, 22px);
+}
+
+.edu-right {
+  text-align: right;
+}
+
+@media (max-width: 786px) {
+  .edu-item {
+    display: block;
+    margin-bottom: 22px;
+  }
+  .edu-right {
+    text-align: left;
+    margin-top: 4px;
+    font-size: 1.25rem;
+  }
+  .edu-right div {
+    display: inline;
+  }
+  .edu-right div::after {
+    content: " • ";
+  }
+  .edu-right div:last-child::after {
+    content: "";
+  }
+}
 .contact {
   margin: 30px 0 50px 0;
 }
@@ -1077,7 +1349,7 @@ a:hover, button:hover, .menu-toggle:hover {
 }
 
 .contact-value {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-top: 4px;
   word-break: break-all; /* Will now correctly break the email when squeezed */
   /* Overriding your global p tag settings */
@@ -1096,7 +1368,6 @@ a:hover, button:hover, .menu-toggle:hover {
   }
   .contact-value {
     white-space: nowrap;
-    font-size: clamp(1rem, 5.5vw, 1.5rem);
   }
 }
 .contact-item {
