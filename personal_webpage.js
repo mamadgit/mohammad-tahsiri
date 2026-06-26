@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', () => {
           ignoreNextUpdate = true; // <-- ignore the next scroll update after any hash click
-          siteHeader.classList.remove('is-invisible');
+          siteHeader.classList.add('is-invisible');
           lastScroll = window.scrollY; // <-- reset reference point
         });
       });
@@ -359,9 +359,18 @@ document.addEventListener("DOMContentLoaded", function() {
     const height = siteHeader.offsetHeight;
     document.documentElement.style.setProperty('--header-height', height + 'px');
   }
+  const mm = gsap.matchMedia();
+  mm.add("(min-width: 786px)", () => {//Ignore calculating header height for mobile screens, so the section can be at top when navigated to
   updateHeaderHeight();
   // Make the function adaptable to height change (due to screen change)
   window.addEventListener('resize', updateHeaderHeight);
+    // GSAP calls this when the condition no longer matches
+    return () => {
+        window.removeEventListener('resize', updateHeaderHeight);
+    };
+  });
+  // });
+  // Make the function adaptable to header height change (due to screen change)
 //#endregion
 
 // ==========================================
@@ -372,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const navItems = document.querySelectorAll('.nav a');
   // Toggle the popup and hamburger animation
   menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('is-active');
+      // menuToggle.classList.toggle('is-active');
       navLinks.classList.toggle('active');
 
       // Optional: Prevent background scrolling when menu is open
@@ -385,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Close the popup smoothly when a link is clicked
   navItems.forEach(item => {
       item.addEventListener('click', () => {
-          menuToggle.classList.remove('is-active');
+          // menuToggle.classList.remove('is-active');
           navLinks.classList.remove('active');
           document.body.style.overflow = ''; // Restore scrolling
       });
