@@ -311,8 +311,8 @@ body {
 }
 .textfonts p.p-articles {
   margin: 0 0 10px;
-  font-family: "Cormorant";
-  font-size: clamp(17px, 4vw, 22px);
+  font-family: "nian";
+  font-size: clamp(19px, 3vw, 25px);
 }
 .textfonts .research-meta {
   display: block;
@@ -321,12 +321,19 @@ body {
   margin: 10px 0 10px;
   transition: color 0.2s ease;
 }
+.textfonts .research-meta.edu {
+  margin: 0;
+  font-size: clamp(15px, 3vw, 19px);
+}
 .textfonts .research-meta:hover {
-  color: var(--accent-color);
+  transition: none;
 }
 @media (max-width: 786px) {
   .textfonts .research-meta {
     font-size: 1.0075rem;
+  }
+  .textfonts .research-meta.edu {
+    margin-top: 1vh;
   }
 }
 .textfonts .header-text {
@@ -335,10 +342,27 @@ body {
   gap: 5px;
   margin: 0 0 10px 0;
 }
+.textfonts .header-text:hover .degree {
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
 .textfonts .undertext {
+  margin-top: 0;
   font-style: italic;
-  font-size: 19px;
-  line-height: 0%;
+  font-size: clamp(15px, 3vw, 19px);
+  font-weight: 100;
+  vertical-align: top;
+}
+@media (min-width: 1024px) {
+  .textfonts .undertext {
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+@media (max-width: 1024px) {
+  .textfonts .undertext {
+    display: revert;
+  }
 }
 @media (max-width: 786px) {
   .textfonts p {
@@ -1197,6 +1221,7 @@ a:hover, button:hover, .menu-toggle:hover {
   }
 }
 .collapsible-btn {
+  width: 100%;
   background-color: transparent;
   cursor: pointer;
   display: flex;
@@ -1206,12 +1231,21 @@ a:hover, button:hover, .menu-toggle:hover {
   margin: 0;
   -webkit-tap-highlight-color: transparent;
 }
+.collapsible-btn.edu {
+  padding: 0;
+  gap: 20px;
+  align-items: center;
+  padding-top: 15px;
+}
 .collapsible-btn.active .icon {
   transform: rotate(45deg);
 }
 .collapsible-btn .icon {
   font-weight: bold;
   transition: transform 0.3s ease;
+}
+.collapsible-btn:hover .degree {
+  color: var(--accent-color);
 }
 
 @media (max-width: 786px) {
@@ -1221,6 +1255,12 @@ a:hover, button:hover, .menu-toggle:hover {
     position: relative;
     z-index: 1;
     min-height: 125px;
+  }
+  .collapsible-btn.edu {
+    display: block;
+  }
+  .collapsible-btn.edu::before {
+    content: none;
   }
   .collapsible-btn::before {
     content: "";
@@ -1238,7 +1278,14 @@ a:hover, button:hover, .menu-toggle:hover {
 .collapsible-content {
   max-height: 0;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
   transition: max-height 0.4s ease-out;
+}
+.collapsible-content.edu {
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(15px, 3vw, 22px);
 }
 
 .publications {
@@ -1255,29 +1302,68 @@ a:hover, button:hover, .menu-toggle:hover {
   margin-bottom: 15px;
 }
 
+.edu {
+  width: 100%;
+}
+
+.edu-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .edu-left .degree {
   font-weight: bold;
-  font-size: clamp(24px, 5vw, 28px);
+  font-size: clamp(23px, 5vw, 26px);
+  transition: color 0.3s ease;
 }
 
 .edu-left .university {
+  display: flex;
   font-style: italic;
-  font-size: clamp(18px, 3vw, 22px);
+  font-size: clamp(18px, 3vw, 20px);
 }
 
 .edu-right {
   text-align: right;
+  font-size: clamp(18px, 3vw, 22px);
 }
 
+.course-display {
+  font-family: "nian";
+  font-style: italic;
+  font-weight: 200;
+  font-size: clamp(17px, 3vw, 21px);
+  margin-top: 1vh;
+  margin-right: 1rem;
+}
+.course-display:first-child {
+  margin-right: 15px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.content-wrap {
+  margin-left: 30px;
+}
+
+@media (max-width: 1024px) {
+  .course-display {
+    display: contents;
+  }
+}
 @media (max-width: 786px) {
   .edu-item {
     display: block;
-    margin-bottom: 22px;
+    margin-bottom: 0;
+  }
+  .edu-left {
+    gap: 15px;
   }
   .edu-right {
     text-align: left;
     margin-top: 4px;
-    font-size: 1.25rem;
+    margin-left: 25px;
   }
   .edu-right div {
     display: inline;
@@ -1287,6 +1373,9 @@ a:hover, button:hover, .menu-toggle:hover {
   }
   .edu-right div:last-child::after {
     content: "";
+  }
+  .content-wrap {
+    margin-left: 0;
   }
 }
 .contact {
