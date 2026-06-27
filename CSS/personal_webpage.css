@@ -277,7 +277,7 @@ body {
   color: var(--accent-color);
 }
 .textfonts h4 {
-  font-size: clamp(22px, 5vw, 26px);
+  font-size: clamp(20px, 3vw, 25px);
   font-weight: 700;
   line-height: 1.1;
   margin: 0;
@@ -312,12 +312,13 @@ body {
 .textfonts p.p-articles {
   margin: 0 0 10px;
   font-family: "nian";
-  font-size: clamp(19px, 3vw, 25px);
+  font-size: clamp(19px, 2.5vw, 25px);
 }
 .textfonts .research-meta {
   display: block;
   font-style: italic;
-  font-size: 1.2865rem;
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 300;
   margin: 10px 0 10px;
   transition: color 0.2s ease;
 }
@@ -329,9 +330,6 @@ body {
   transition: none;
 }
 @media (max-width: 786px) {
-  .textfonts .research-meta {
-    font-size: 1.0075rem;
-  }
   .textfonts .research-meta.edu {
     margin-top: 1vh;
   }
@@ -1245,6 +1243,13 @@ a:hover, button:hover, .menu-toggle:hover {
   transition: transform 0.3s ease;
 }
 .collapsible-btn:hover .degree {
+  color: var(--accent-color);
+}
+
+.project-title {
+  transition: color 0.3s ease;
+}
+.project-title:hover {
   color: var(--accent-color);
 }
 
