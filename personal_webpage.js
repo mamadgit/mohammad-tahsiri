@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
   let CurrentlyOpen = null;      // Tracks the currently expanded { button, content } pair
   let triggerMap = new Map();    // Stores btn -> ScrollTrigger pairs 
   let isBatchOpening = false;
+  let isAccordionClick = false;
+  let lastScroll = 0;
   let isAccordionOpen = false; //Variable to cause a delay between executing functions and prevent crahsing
   let isAccordionSwap = false; //Variable to establish connection between two seperate functions (i.e., Disappear site-header upon opening second button)
 //#endregion
@@ -29,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
   if (siteHeader) {
     const mm = gsap.matchMedia();
     mm.add("(max-width: 786px)", () => {
-      let lastScroll = 0;
       let ignoreNextUpdate = false; // <-- flag
       const threshold = 10;
 
@@ -52,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             lastScroll = current;
             return;
           }
+          
           if(Math.abs(delta) > JmpThrsh){
             //isAccordionAnimating: variable that determines button closing.
             if (window.isAccordionAnimating) {
@@ -76,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
           }
           lastScroll = current;
-
         }
       });
     });
@@ -93,6 +94,117 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }, { once: true });
   }
+
+  const portfolioVersionHistory = [
+    { hash: "18835cb", date: "2026-04-13", message: "Update index.html", lane: "branch" },
+    { hash: "71e7de7", date: "2026-04-16", message: "Update index.html", lane: "branch" },
+    { hash: "707a181", date: "2026-04-16", message: "Add files via upload", lane: "branch" },
+    { hash: "5ac774f", date: "2026-04-18", message: "Update index.html", lane: "branch" },
+    { hash: "554dbc2", date: "2026-04-22", message: "Update index.html", lane: "branch" },
+    { hash: "4d41ec8", date: "2026-04-22", message: "Refine personal introduction in index.html", lane: "branch" },
+    { hash: "4fef544", date: "2026-05-02", message: "Update personal_webpage.css", lane: "branch" },
+    { hash: "5840777", date: "2026-05-02", message: "Update personal_webpage.css", lane: "branch" },
+    { hash: "ff21c3e", date: "2026-05-05", message: "Merge local project with GitHub repo", lane: "main", isMerge: true },
+    { hash: "c98cd98", date: "2026-05-06", message: "Update", lane: "main" },
+    { hash: "9764aff", date: "2026-05-06", message: "Update", lane: "main" },
+    { hash: "3c710e1", date: "2026-05-06", message: "Update", lane: "main" },
+    { hash: "b8a9c29", date: "2026-05-06", message: "Update", lane: "main" },
+    { hash: "c6d082f", date: "2026-05-14", message: "Fixed interface issue of AppendChild by changing container", lane: "main" },
+    { hash: "8b67e45", date: "2026-05-14", message: "Fixed UI of Sort button for mobile screen", lane: "main" },
+    { hash: "0d94c75", date: "2026-05-14", message: "Small UI update for sort button on mobile", lane: "main" },
+    { hash: "da9191c", date: "2026-05-14", message: "Small Update to button", lane: "main" },
+    { hash: "fa7ec6f", date: "2026-05-15", message: "Small Update", lane: "main" },
+  ];
+
+  function initVersionHistoryGraphs() {
+    const graphs = document.querySelectorAll('[data-version-history="personal-portfolio"]');
+
+    graphs.forEach((graph) => {
+      const track = graph.querySelector(".version-history__track");
+      if (!track) return;
+
+      const commitUrlBase = `https://github.com/${graph.dataset.repo}/commit/`;
+      const spacing = 220;
+      const startX = 56;
+      const mainY = 58;
+      const branchY = 156;
+      const commits = portfolioVersionHistory.map((commit, index) => ({
+        ...commit,
+        x: startX + index * spacing,
+        y: commit.lane === "branch" ? branchY : mainY,
+      }));
+
+      const firstBranch = commits.find((commit) => commit.lane === "branch");
+      const lastBranch = [...commits].reverse().find((commit) => commit.lane === "branch");
+      const mergeCommit = commits.find((commit) => commit.isMerge);
+      const lastMain = [...commits].reverse().find((commit) => commit.lane === "main");
+      const trackWidth = commits[commits.length - 1].x + spacing;
+      const trackHeight = 310;
+
+      track.innerHTML = "";
+      track.style.width = `${trackWidth}px`;
+      track.style.height = `${trackHeight}px`;
+
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("class", "version-history__lines");
+      svg.setAttribute("viewBox", `0 0 ${trackWidth} ${trackHeight}`);
+      svg.setAttribute("aria-hidden", "true");
+
+      if (mergeCommit && lastMain) {
+        const mainLine = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        mainLine.setAttribute("class", "version-history__line version-history__line--main");
+        mainLine.setAttribute("d", `M ${mergeCommit.x} ${mainY} H ${lastMain.x}`);
+        svg.appendChild(mainLine);
+      }
+
+      if (firstBranch && lastBranch && mergeCommit) {
+        const branchLine = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        branchLine.setAttribute("class", "version-history__line version-history__line--branch");
+        branchLine.setAttribute(
+          "d",
+          `M ${firstBranch.x} ${branchY} H ${lastBranch.x} C ${lastBranch.x + 72} ${branchY}, ${mergeCommit.x - 86} ${mainY}, ${mergeCommit.x} ${mainY}`
+        );
+        svg.appendChild(branchLine);
+      }
+
+      track.appendChild(svg);
+
+      commits.forEach((commit) => {
+        const node = document.createElement("a");
+        node.className = `version-node version-node--${commit.lane}${commit.isMerge ? " version-node--merge" : ""}`;
+        node.href = `${commitUrlBase}${commit.hash}`;
+        node.target = "_blank";
+        node.rel = "noopener noreferrer";
+        node.style.setProperty("--node-x", `${commit.x}px`);
+        node.style.setProperty("--node-y", `${commit.y}px`);
+        node.setAttribute("aria-label", `${commit.date}: ${commit.message}`);
+
+        const dot = document.createElement("span");
+        dot.className = "version-node__dot";
+
+        const label = document.createElement("span");
+        label.className = "version-node__label";
+
+        const date = document.createElement("span");
+        date.className = "version-node__date";
+        date.textContent = commit.date;
+
+        const hash = document.createElement("span");
+        hash.className = "version-node__hash";
+        hash.textContent = commit.hash;
+
+        const message = document.createElement("span");
+        message.className = "version-node__message";
+        message.textContent = commit.message;
+
+        label.append(date, hash, message);
+        node.append(dot, label);
+        track.appendChild(node);
+      });
+    });
+  }
+
+  initVersionHistoryGraphs();
 //#endregion
 
 // ==========================================
@@ -362,11 +474,10 @@ document.addEventListener("DOMContentLoaded", function() {
   const mm = gsap.matchMedia();
   mm.add("(min-width: 786px)", () => {//Ignore calculating header height for mobile screens, so the section can be at top when navigated to
   updateHeaderHeight();
-  // Make the function adaptable to height change (due to screen change)
-  window.addEventListener('resize', updateHeaderHeight);
+  window.addEventListener('resize', updateHeaderHeight);//For when the URl bar in mobile browser disappears due to scrolling
     // GSAP calls this when the condition no longer matches
     return () => {
-        window.removeEventListener('resize', updateHeaderHeight);
+        window.removeEventListener('resize', updateHeaderHeight);//When it reappears
     };
   });
   // });
@@ -401,4 +512,3 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 //#endregion
 });
-
