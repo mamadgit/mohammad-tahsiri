@@ -348,7 +348,7 @@ body {
   margin-top: 0;
   font-style: italic;
   font-size: clamp(15px, 3vw, 19px);
-  font-weight: 100;
+  font-weight: bolder;
   vertical-align: top;
 }
 @media (min-width: 1024px) {
