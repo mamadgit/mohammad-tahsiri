@@ -1283,13 +1283,13 @@ a:hover, button:hover, .menu-toggle:hover {
 .collapsible-content {
   max-height: 0;
   overflow: hidden;
-  display: flex;
+  display: block;
   justify-content: center;
   transition: max-height 0.4s ease-out;
 }
 .collapsible-content.edu {
   justify-content: center;
-  align-items: center;
+  display: flex;
   font-size: clamp(15px, 3vw, 22px);
 }
 
