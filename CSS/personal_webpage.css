@@ -8,7 +8,7 @@
   --accent-2: #7aa7ff;
   --border: #1e2230;
   --card: #161923;
-  --accent-color: #3f9a68e2 ;
+  --accent-color: #4D7C59 ;
   --glow-overlay: radial-gradient(circle at center center, rgba(108, 245, 210, 0.05) 0%, transparent 80%);
   --glow-overlay-header: radial-gradient(circle at center center, rgba(108, 245, 210, 0.05) 0%, transparent 80%);
 }
@@ -314,54 +314,6 @@ body {
   font-family: "nian";
   font-size: clamp(19px, 2.5vw, 25px);
 }
-.textfonts .research-meta {
-  display: block;
-  font-style: italic;
-  font-size: clamp(17px, 2vw, 20px);
-  font-weight: 300;
-  margin: 10px 0 10px;
-  transition: color 0.2s ease;
-}
-.textfonts .research-meta.edu {
-  margin: 0;
-  font-size: clamp(15px, 3vw, 19px);
-}
-.textfonts .research-meta:hover {
-  transition: none;
-}
-@media (max-width: 786px) {
-  .textfonts .research-meta.edu {
-    margin-top: 1vh;
-  }
-}
-.textfonts .header-text {
-  display: inline-block;
-  flex-direction: column;
-  gap: 5px;
-  margin: 0 0 10px 0;
-}
-.textfonts .header-text:hover .degree {
-  color: var(--accent-color);
-  transition: color 0.3s ease;
-}
-.textfonts .undertext {
-  margin-top: 0;
-  font-style: italic;
-  font-size: clamp(15px, 3vw, 19px);
-  font-weight: bolder;
-  vertical-align: top;
-}
-@media (min-width: 1024px) {
-  .textfonts .undertext {
-    vertical-align: middle;
-    display: inline-block;
-  }
-}
-@media (max-width: 1024px) {
-  .textfonts .undertext {
-    display: revert;
-  }
-}
 @media (max-width: 786px) {
   .textfonts p {
     text-align: justify;
@@ -612,11 +564,6 @@ html.disable-scroll-padding {
   margin: 0 0 8px;
 }
 
-@media (max-width: 720px) {
-  .footer-inner {
-    flex-direction: column;
-  }
-}
 .footer-contact {
   display: flex;
   flex-direction: column;
@@ -1214,8 +1161,7 @@ a:hover, button:hover, .menu-toggle:hover {
   align-items: center;
   -webkit-tap-highlight-color: transparent;
 }
-
-@media (max-width: 786px) {
+@media (max-width: 768px) {
   .project-box {
     display: inline;
     z-index: 1;
@@ -1223,6 +1169,14 @@ a:hover, button:hover, .menu-toggle:hover {
     text-align: center;
   }
 }
+
+.header-text {
+  display: inline-block;
+  flex-direction: column;
+  gap: 5px;
+  margin: 0 0 10px 0;
+}
+
 .collapsible-btn {
   width: 100%;
   background-color: transparent;
@@ -1247,30 +1201,17 @@ a:hover, button:hover, .menu-toggle:hover {
   font-weight: bold;
   transition: transform 0.3s ease;
 }
-.collapsible-btn:hover .degree {
+.collapsible-btn:hover .degree,
+.collapsible-btn:hover .project-title {
   color: var(--accent-color);
 }
-
-.project-title {
-  transition: color 0.3s ease;
-}
-.project-title:hover {
-  color: var(--accent-color);
-}
-
-@media (max-width: 786px) {
+@media (max-width: 768px) {
   .collapsible-btn {
     max-width: 100%;
     padding: 15px 0;
     position: relative;
     z-index: 1;
     min-height: 125px;
-  }
-  .collapsible-btn.edu {
-    display: block;
-  }
-  .collapsible-btn.edu::before {
-    content: none;
   }
   .collapsible-btn::before {
     content: "";
@@ -1284,7 +1225,35 @@ a:hover, button:hover, .menu-toggle:hover {
     background-attachment: fixed;
     z-index: -1;
   }
+  .collapsible-btn.edu {
+    display: block;
+  }
+  .collapsible-btn.edu::before {
+    content: none;
+  }
 }
+
+.project-title {
+  transition: color 0.3s ease;
+}
+
+.research-meta {
+  display: block;
+  font-style: italic;
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 300;
+  margin: 10px 0 10px;
+}
+.research-meta.edu {
+  margin: 0;
+  font-size: clamp(15px, 3vw, 19px);
+}
+@media (max-width: 768px) {
+  .research-meta.edu {
+    margin-top: 1vh;
+  }
+}
+
 .collapsible-content {
   max-height: 0;
   overflow: hidden;
@@ -1311,6 +1280,12 @@ a:hover, button:hover, .menu-toggle:hover {
   justify-content: space-between;
   margin-bottom: 15px;
 }
+@media (max-width: 768px) {
+  .edu-item {
+    display: block;
+    margin-bottom: 0;
+  }
+}
 
 .edu {
   width: 100%;
@@ -1320,6 +1295,11 @@ a:hover, button:hover, .menu-toggle:hover {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+@media (max-width: 768px) {
+  .edu-left {
+    gap: 15px;
+  }
 }
 
 .edu-left .degree {
@@ -1338,38 +1318,7 @@ a:hover, button:hover, .menu-toggle:hover {
   text-align: right;
   font-size: clamp(18px, 3vw, 22px);
 }
-
-.course-display {
-  font-family: "nian";
-  font-style: italic;
-  font-weight: 200;
-  font-size: clamp(17px, 3vw, 21px);
-  margin-top: 1vh;
-  margin-right: 1rem;
-}
-.course-display:first-child {
-  margin-right: 15px;
-  font-style: normal;
-  font-weight: 700;
-}
-
-.content-wrap {
-  margin-left: 30px;
-}
-
-@media (max-width: 1024px) {
-  .course-display {
-    display: contents;
-  }
-}
-@media (max-width: 786px) {
-  .edu-item {
-    display: block;
-    margin-bottom: 0;
-  }
-  .edu-left {
-    gap: 15px;
-  }
+@media (max-width: 768px) {
   .edu-right {
     text-align: left;
     margin-top: 4px;
@@ -1384,10 +1333,55 @@ a:hover, button:hover, .menu-toggle:hover {
   .edu-right div:last-child::after {
     content: "";
   }
+}
+
+.undertext {
+  margin-top: 0;
+  font-style: italic;
+  font-size: clamp(15px, 3vw, 19px);
+  font-weight: bolder;
+  vertical-align: top;
+}
+@media (max-width: 1024px) {
+  .undertext {
+    display: revert;
+  }
+}
+@media (min-width: 1024px) {
+  .undertext {
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
+.course-display {
+  font-family: "nian";
+  font-style: italic;
+  font-weight: 200;
+  font-size: clamp(17px, 3vw, 21px);
+  margin-top: 1vh;
+  margin-right: 1rem;
+}
+.course-display:first-child {
+  margin-right: 15px;
+  font-style: normal;
+  font-weight: 700;
+}
+@media (max-width: 1024px) {
+  .course-display {
+    display: contents;
+  }
+}
+
+.content-wrap {
+  margin-left: 30px;
+}
+@media (max-width: 768px) {
   .content-wrap {
     margin-left: 0;
   }
 }
+
 .contact {
   margin: 30px 0 50px 0;
 }
@@ -1397,6 +1391,11 @@ a:hover, button:hover, .menu-toggle:hover {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   margin: 0 75px;
+}
+@media (max-width: 768px) {
+  .contact-grid {
+    margin: 0 20px;
+  }
 }
 
 .contact-card {
@@ -1409,7 +1408,7 @@ a:hover, button:hover, .menu-toggle:hover {
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   text-decoration: none;
-  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out, border-color 0.2s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
   background: var(--glow-overlay), var(--bg);
   background-attachment: fixed;
 }
@@ -1446,9 +1445,14 @@ a:hover, button:hover, .menu-toggle:hover {
   max-width: 100%;
   text-align: center;
 }
+@media (max-width: 768px) {
+  .contact-label {
+    font-size: 1.2rem;
+  }
+}
 
 .contact-value {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-top: 4px;
   word-break: break-all; /* Will now correctly break the email when squeezed */
   /* Overriding your global p tag settings */
@@ -1457,18 +1461,12 @@ a:hover, button:hover, .menu-toggle:hover {
   margin-right: 0;
   text-align: center;
 }
-
-@media (max-width: 786px) {
-  .contact-grid {
-    margin: 0 20px;
-  }
-  .contact-label {
-    font-size: 1.2rem;
-  }
+@media (max-width: 768px) {
   .contact-value {
     white-space: nowrap;
   }
 }
+
 .contact-item {
   min-width: 220px;
 }
