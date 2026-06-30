@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
   let lastScroll = 0;
   let isAccordionOpen = false; //Variable to cause a delay between executing functions and prevent crahsing
   let isAccordionSwap = false; //Variable to establish connection between two seperate functions (i.e., Disappear site-header upon opening second button)
+  let scrollIntoView = false;
 //#endregion
 
 // ==========================================
@@ -290,10 +291,10 @@ document.addEventListener("DOMContentLoaded", function() {
    */
   
   function ActivateTrigger(btn, content) {
-    // If this button already has a trigger in the Map, do nothing.
+    // If this button already has a trigger reference in the Map, do nothing.
     if (triggerMap.has(btn)) return;
       // 2. STOP HERE if the screen is wider than 786px (Desktop)
-  if (window.innerWidth > 786) return; 
+  // if (window.innerWidth > 786) return; 
     // Only run the global safety kill during individual interaction
     if(!isBatchOpening && collapsibleTrigger){
       collapsibleTrigger.kill(true);
@@ -309,16 +310,45 @@ document.addEventListener("DOMContentLoaded", function() {
       pinSpacing: false,        // Prevents GSAP from adding extra padding below the pinned element
       invalidateOnRefresh: true, // Forces recalculation of start/end values on window resize
 
+      onLeave: () =>{
+        if(isAccordionClick) return; //A button is opening, don't see this as a quick scroll to fire onLeave
+
+        if(CurrentlyOpen && CurrentlyOpen.button === btn){ //Don't allow closed buttons to activate the trigger btn, only the currently open
+          if(window.innerWidth > 786){
+            CloseCurrent(false);
+          }
+          else{
+            CloseCurrent(true);
+          }
+        }
+      },
       onLeaveBack: () => {
+      if (window.innerWidth > 786) return;
 
       if (isAccordionClick) return; 
       if (CurrentlyOpen && CurrentlyOpen.button === btn) {
-        CloseCurrent();
+        CloseCurrent(false);
       }
     }
     });
     
-    collapsibleTrigger.refresh();
+    ScrollTrigger.create({ // Seperate scrollTrigger to close open button when leaving viewport and avoid screen jumping from another button in a new viewport
+      trigger: content, // More stylish to use content rather than btn
+      start: "top bottom",
+      pin: false,
+      pinSpacing: false,
+      invalidateOnRefresh: true,
+
+      onLeaveBack: () =>{ 
+        if (isAccordionClick) return; 
+        if (CurrentlyOpen && CurrentlyOpen.button === btn) {
+          CloseCurrent(false);
+        }
+      }
+    }); 
+
+    collapsibleTrigger.refresh();//Refresh after collaspibleTrigger fires to calculate the new scroll height
+
     // Use a map to store objects: the key btn and its values trigger & content
     triggerMap.set(btn, {trigger: collapsibleTrigger, content});
   }
@@ -326,8 +356,9 @@ document.addEventListener("DOMContentLoaded", function() {
    * Closes the currently active collapsible, removes its pin, 
    * and resets the viewport to the button's natural position.
    */
-  function CloseCurrent() {
-    window.isAccordionOpen = false;
+  function CloseCurrent(scrollIntoView = true) {
+
+    window.isAccordionOpen = false; //Tell the site header (nav menu) the according is closed
     if (!CurrentlyOpen) return;
     const { button, content } = CurrentlyOpen;
 
@@ -340,7 +371,14 @@ document.addEventListener("DOMContentLoaded", function() {
     triggerMap.delete(button); 
 
     //Prevent viewport jumping/getting lost by scrolling the user back to the button
-    button.scrollIntoView({ block: "start" });
+    // const mm = gsap.matchMedia();
+    // mm.add("(max-width: 786px)", ()=> {
+    if (scrollIntoView) {
+        requestAnimationFrame(() => {
+            button.scrollIntoView({ block: "nearest" });
+        });
+    }
+    // });
 
     //Reset DOM states to collapse the content
     button.classList.remove("active");
@@ -365,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         isAccordionClick = true; //ENGAGE THE LOCK: Stop the scroll trigger from firing
 
-        window.isAccordionAnimating = true; // <--- 1. LOCK THE HEADER HERE
+        window.isAccordionAnimating = true; // <--- 1. LOCK THE PROJECT HEADER HERE
         document.documentElement.classList.add('disable-scroll-padding');
         
         const btnIndex = parseInt(this.dataset.index);
@@ -373,14 +411,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const isOpening = !this.classList.contains("active");
 
         if (isOpening && CurrentlyOpen && CurrentlyOpen.button !== this) {
-          CloseCurrent();
+          CloseCurrent(true);
         }
         if (isOpening) {
+          
           this.classList.add("active");
+          
           content.style.maxHeight = content.scrollHeight + "px";
 
           CurrentlyOpen = { button: this, content };
-          window.isAccordionOpen = true; // <--- ADD THIS: Tell the header it's open
+          window.isAccordionOpen = true; // <--- Tell the site header (nav menu) the accordian is open
           setTimeout(() => {
             ActivateTrigger(this, content);
             ScrollTrigger.refresh();
@@ -392,8 +432,8 @@ document.addEventListener("DOMContentLoaded", function() {
             document.documentElement.classList.remove('disable-scroll-padding'); // <--- Turn it back on!
           }, 400); 
         } else {
-          CloseCurrent();
-          window.isAccordionOpen = false; // <--- ADD THIS: Tell the header it's closed
+          CloseCurrent(true);
+          window.isAccordionOpen = false; // <---Tell the header it's closed
           //RELEASE THE LOCK for the closing scenario too
           setTimeout(() => {
              lastScroll = ScrollTrigger.maxScroll(window) ? window.scrollY : lastScroll;
