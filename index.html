@@ -75,6 +75,44 @@
                             <div class="expandall">Expand all</div>
                         </div>
                     </div>
+
+                        <!--SUPICS WEBSITE-->
+                        <div class="btn-&-contnt-wrap" data-category="projects" data-original-order="2">
+                            <h4 class="collapsible-btn">
+                                <span class="header-text">
+                                    <div class="project-title">Design and Implementation of SuPics Factory Website</div>
+                                    <div class="research-meta">SuPics Factory, Oct 2025 - Oct 2026</div>
+                                </span>
+                                <span class="icon">+</span>
+                            </h4>
+                            <div class="collapsible-content">
+                                <ul>
+                                    <li>
+                                        <div class="project-grid">
+                                            <!-- Column 1: Text -->
+                                            <div class="project-text">
+                                                Built a responsive front-end website from the ground up using HTML, CSS (SASS), and vanilla JavaScript. It's unique features are:<br> <a href="https://supics-factory-website.pages.dev/"  target="_blank" rel="noopener noreferrer" style="color: rgb(117, 122, 246); text-decoration: underline;">Website Link</a>
+                                            </div>
+                                            <!-- Column 2: QR Code -->
+                                            <div class="project-qr">
+                                                <!-- Replace src with your actual QR code path -->
+                                                <img src="SuPics-QR Code.png" alt="Scan to view on mobile">
+                                                <span>Scan for smartphone!</span>
+                                            </div>
+                                        </div>
+                                        <ul>
+                                            <li>Engineered custom scroll position restoration logic to resolve conflicts introduced by GSAP's ScrollSmoother, leveraging the Navigation Timing API with legacy fallbacks to distinguish reload vs. fresh navigation events.</li>
+                                            <li>Designed a decoupled navigation state system using sessionStorage and the History API for clean, hash-free URLs.</li>
+                                            <li>Prevented “flash of wrong theme” via a boot-time IIFE with localStorage persistence and system preference detection through matchMedia.</li>
+                                            <li>Built a custom text-splitting utility (lightweight alternative to GSAP's SplitText) for scroll-triggered staggered reveals, with Persian/Arabic support that segments words into cursively joined letter clusters so animated spans never break ligatures.</li>
+                                            <li>Built three custom scroll-driven components from scratch (horizontal, diagonal, and infinite logo carousels) on a requestAnimationFrame lerp loop, with wheel/touch interception, gesture-axis locking, and hand-off to page scroll at track boundaries.</li>
+                                            <li>Implemented a filterable project gallery using the FLIP technique with GSAP, synchronized with a swipeable carousel via custom DOM events.</li>
+                                            <li>Architected a dual-mode scrolling system (ScrollSmoother on desktop, native scroll on mobile via gsap.matchMedia) with scroll-direction-aware headers, hero snap behavior, and breakpoint-scoped DOM changes with proper cleanup.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         <!--PERSONAL WEBSITE-->
                         <div class="btn-&-contnt-wrap" data-category="projects" data-original-order="1">
                             <h4 class="collapsible-btn">
@@ -90,7 +128,7 @@
                                         <div class="project-grid">
                                             <!-- Column 1: Text -->
                                             <div class="project-text">
-                                                Highly optimized for smartphone viewing, this responsive portfolio was built from scratch using HTML, CSS(specifically SCSS), vanilla JavaScript, and GSAP to deliver maximum screen visibility while maintaining seamless, on-demand access to site navigation. Key features include:
+                                                Highly optimized for smartphone viewing, this responsive portfolio was built from scratch using HTML, CSS(specifically SASS), vanilla JavaScript, and GSAP to deliver maximum screen visibility while maintaining seamless, on-demand access to site navigation. Key features include:
                                             </div>
                                             <!-- Column 2: QR Code -->
                                             <div class="project-qr">
@@ -114,29 +152,6 @@
                                                 <div class="version-history__track"></div>
                                             </div>
                                         </div> -->
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--SUPICS WEBSITE-->
-                        <div class="btn-&-contnt-wrap" data-category="projects" data-original-order="2">
-                            <h4 class="collapsible-btn">
-                                <span class="header-text">
-                                    <div class="project-title">Design and Implementation of SuPics Factory Website</div>
-                                    <div class="research-meta">Freelance Programming, Oct 2025 - Jan 2026</div>
-                                </span>
-                                <span class="icon">+</span>
-                            </h4>
-                            <div class="collapsible-content">
-                                <ul>
-                                    <li>Built a responsive front-end website from the ground up using HTML, CSS (specifically SCSS), and vanilla JavaScript. It's unique features are:<br> <a href="https://supics-factory-website.pages.dev/"  target="_blank" rel="noopener noreferrer" style="color: rgb(117, 122, 246); text-decoration: underline;">Website Link</a>
-                                        <ul>
-                                            <li>Engineered custom scroll position restoration logic to resolve conflicts introduced by GSAP's ScrollSmoother, leveraging the Navigation Timing API with legacy fallbacks to distinguish reload vs. fresh navigation events.</li>
-                                            <li>Designed a decoupled navigation state system using sessionStorage and the History API for clean, hash-free URLs.</li>
-                                            <li>Prevented “flash of wrong theme” via a boot-time IIFE with localStorage persistence and system preference detection through matchMedia.</li>
-                                            <li>Implemented scroll-driven interactions including hero snap behavior, pinned header, and smooth anchor navigation using GSAP ScrollTrigger and ScrollSmoother.</li>
-                                            <li>Built a custom per-character text splitting utility as a lightweight alternative to GSAP's SplitText library, enabling scroll-triggered staggered character reveal animations across the site.</li>
-                                        </ul>
                                     </li>
                                 </ul>
                             </div>
