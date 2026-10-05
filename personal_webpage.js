@@ -432,7 +432,26 @@ document.addEventListener("DOMContentLoaded", function() {
             document.documentElement.classList.remove('disable-scroll-padding'); // <--- Turn it back on!
           }, 400); 
         } else {
-          CloseCurrent(true);
+          if (CurrentlyOpen && CurrentlyOpen.button === this) {
+            CloseCurrent(true);
+          } else { 
+            // Opened via "Expand all": CurrentlyOpen doesn't track it, so close this one directly
+            this.classList.remove("active");
+            const entry = triggerMap.get(this);
+            // A pinned button is wrapped in a pin-spacer, so this.nextElementSibling is null.
+            // Use the content reference stored when the trigger was created.
+            const target = entry ? entry.content : content;
+            if (entry) {
+              if (entry.trigger) entry.trigger.kill(true); // Revert pin-spacer DOM mutations
+              triggerMap.delete(this);
+            }
+            if (target) {
+              target.style.maxHeight = null;
+              Transition(target);
+            }
+            requestAnimationFrame(() => this.scrollIntoView({ block: "nearest" }));
+            setTimeout(() => ScrollTrigger.refresh(), 100);
+          }
           window.isAccordionOpen = false; // <---Tell the header it's closed
           //RELEASE THE LOCK for the closing scenario too
           setTimeout(() => {
@@ -459,9 +478,10 @@ document.addEventListener("DOMContentLoaded", function() {
       if (label === "expand all") {
         isBatchOpening = true;
         collapsibles.forEach(function(btn) {
-          if (!btn.classList.contains("active")) { // Skip already open ones
+          const content = btn.nextElementSibling;
+          // Skip buttons with no content panel (e.g. the Diploma entry) and already open ones
+          if (content && content.classList.contains("collapsible-content") && !btn.classList.contains("active")) {
             btn.classList.add("active");
-            const content = btn.nextElementSibling;
             content.style.maxHeight = content.scrollHeight + "px";
             if (typeof Transition === 'function') Transition(content);
             ActivateTrigger(btn, content);
