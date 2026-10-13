@@ -75,9 +75,45 @@
                             <div class="expandall">Expand all</div>
                         </div>
                     </div>
-
-                        <!--PERSONAL WEBSITE-->
+                        <!--SUPICS WEBSITE-->
                         <div class="project-item" data-category="projects" data-original-order="1">
+                                <h4 class="collapsible-btn">
+                                    <span class="header-text">
+                                        <div class="project-title">Design and Implementation of SuPics Factory Website</div>
+                                        <div class="research-meta">SuPics Factory, Oct 2025 - Oct 2026</div>
+                                    </span>
+                                    <span class="icon">+</span>
+                                </h4>
+                                <div class="collapsible-content">
+                                    <ul>
+                                        <li>
+                                            <div class="project-grid">
+                                                <!-- Column 1: Text -->
+                                                <div class="project-text">
+                                                    Built a responsive front-end website from the ground up using HTML, CSS (SASS), and vanilla JavaScript. It's unique features are:<br> <a href="https://supics-factory-website.pages.dev/"  target="_blank" rel="noopener noreferrer" style="color: rgb(117, 122, 246); text-decoration: underline;">Website Link</a>
+                                                </div>
+                                                <!-- Column 2: QR Code -->
+                                                <div class="project-qr">
+                                                    <!-- Replace src with your actual QR code path -->
+                                                    <img src="SuPics-QR Code.png" alt="Scan to view on mobile">
+                                                    <span>Scan for smartphone!</span>
+                                                </div>
+                                            </div>
+                                            <ul>
+                                                <li>Engineered custom scroll position restoration logic to resolve conflicts introduced by GSAP's ScrollSmoother, leveraging the Navigation Timing API with legacy fallbacks to distinguish reload vs. fresh navigation events.</li>
+                                                <li>Designed a decoupled navigation state system using sessionStorage and the History API for clean, hash-free URLs.</li>
+                                                <li>Prevented “flash of wrong theme” via a boot-time IIFE with localStorage persistence and system preference detection through matchMedia.</li>
+                                                <li>Built a custom text-splitting utility (lightweight alternative to GSAP's SplitText) for scroll-triggered staggered reveals, with Persian/Arabic support that segments words into cursively joined letter clusters so animated spans never break ligatures.</li>
+                                                <li>Built three custom scroll-driven components from scratch (horizontal, diagonal, and infinite logo carousels) on a requestAnimationFrame lerp loop, with wheel/touch interception, gesture-axis locking, and hand-off to page scroll at track boundaries.</li>
+                                                <li>Implemented a filterable project gallery using the FLIP technique with GSAP, synchronized with a swipeable carousel via custom DOM events.</li>
+                                                <li>Architected a dual-mode scrolling system (ScrollSmoother on desktop, native scroll on mobile via gsap.matchMedia) with scroll-direction-aware headers, hero snap behavior, and breakpoint-scoped DOM changes with proper cleanup.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                        </div>
+                        <!--PERSONAL WEBSITE-->
+                        <div class="project-item" data-category="projects" data-original-order="2">
                                 <h4 class="collapsible-btn">
                                     <span class="header-text">
                                         <div class="project-title">Design and Implementation of Personal Portfolio Website</div>
@@ -119,43 +155,7 @@
                                     </ul>
                                 </div>
                         </div>
-                        <!--SUPICS WEBSITE-->
-                        <div class="project-item" data-category="projects" data-original-order="2">
-                                <h4 class="collapsible-btn">
-                                    <span class="header-text">
-                                        <div class="project-title">Design and Implementation of SuPics Factory Website</div>
-                                        <div class="research-meta">SuPics Factory, Oct 2025 - Oct 2026</div>
-                                    </span>
-                                    <span class="icon">+</span>
-                                </h4>
-                                <div class="collapsible-content">
-                                    <ul>
-                                        <li>
-                                            <div class="project-grid">
-                                                <!-- Column 1: Text -->
-                                                <div class="project-text">
-                                                    Built a responsive front-end website from the ground up using HTML, CSS (SASS), and vanilla JavaScript. It's unique features are:<br> <a href="https://supics-factory-website.pages.dev/"  target="_blank" rel="noopener noreferrer" style="color: rgb(117, 122, 246); text-decoration: underline;">Website Link</a>
-                                                </div>
-                                                <!-- Column 2: QR Code -->
-                                                <div class="project-qr">
-                                                    <!-- Replace src with your actual QR code path -->
-                                                    <img src="SuPics-QR Code.png" alt="Scan to view on mobile">
-                                                    <span>Scan for smartphone!</span>
-                                                </div>
-                                            </div>
-                                            <ul>
-                                                <li>Engineered custom scroll position restoration logic to resolve conflicts introduced by GSAP's ScrollSmoother, leveraging the Navigation Timing API with legacy fallbacks to distinguish reload vs. fresh navigation events.</li>
-                                                <li>Designed a decoupled navigation state system using sessionStorage and the History API for clean, hash-free URLs.</li>
-                                                <li>Prevented “flash of wrong theme” via a boot-time IIFE with localStorage persistence and system preference detection through matchMedia.</li>
-                                                <li>Built a custom text-splitting utility (lightweight alternative to GSAP's SplitText) for scroll-triggered staggered reveals, with Persian/Arabic support that segments words into cursively joined letter clusters so animated spans never break ligatures.</li>
-                                                <li>Built three custom scroll-driven components from scratch (horizontal, diagonal, and infinite logo carousels) on a requestAnimationFrame lerp loop, with wheel/touch interception, gesture-axis locking, and hand-off to page scroll at track boundaries.</li>
-                                                <li>Implemented a filterable project gallery using the FLIP technique with GSAP, synchronized with a swipeable carousel via custom DOM events.</li>
-                                                <li>Architected a dual-mode scrolling system (ScrollSmoother on desktop, native scroll on mobile via gsap.matchMedia) with scroll-direction-aware headers, hero snap behavior, and breakpoint-scoped DOM changes with proper cleanup.</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                        </div>
+
                         <!-- BIBBREEZE -->
                         <div class="project-item" data-category="projects" data-original-order="3">
                             <h4 class="collapsible-btn">
@@ -204,13 +204,19 @@
                             <!-- Wrap everything that should collapse inside this div -->
                             <div class="collapsible-content">
                                 <ul>
-                                    <li>Analysed and compared existing semantical strucutres on formally modelling agents' knowledge representation and reasoning process to conclude a new perspective regarding the design of said structures.
+                                    <li>Reviewed and compared semantical structures for representing agents' knowledge and beliefs and examining
+                                        how far each one grounds an agent's epistemic state in its computational state:
                                         <ul>
-                                            <li>Most research in this area agree to reach the computationally grounded threshold of semantical
-                                            structures, the agents' local states must be considered alongside the system's global states. However, disagreement arises if a structure adequately captures the local states to reach this threshold.</li>
-                                            <li>This research review presents various research with different designs for their agents' local states and by comparision, concludes that computationally grounding is not threshold-based but gradational.</li>
-                                            <li>This comparision has been shown through hypotheical scenarios (i.e., swarm of self-driving cars).</li>
-                                            <li>The theoretical and practical comparision portray a new perspective towards designing semantical structures; The adequate level of computational grounding for the agents' local states must consider the their environment; certain environments may require more abstract designs.</li>
+                                            <li>Compared existing semantical structures such as possible worlds, interpreted systems and syntactic
+                                            approaches to belief ascription, including the debate over whether interpreted systems that
+                                            models each agent's local state alongside the system's global state, achieve grounding adequately.</li>
+
+                                            <li>Argued that, whereas the literature generally treats computational grounding as threshold-based;
+                                            a framework that either meets or fails, it is better understood as a degree-based framework.</li>
+
+                                            <li>Illustrated the comparison through a case study of a hypothetical swarm of autonomous vehicles,
+                                            concluding that the appropriate degree of grounding depends on the agents' environment, with
+                                            some environments favouring more abstract designs.</li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -254,9 +260,18 @@
                                 <ul>
                                     <li>Researched how trust is distributed and propagated amongst agents using agent-based modelling.
                                         <ul>
-                                            <li>Modeled how agents trust in their environment in NetLogo, incorporating influencing parameters.</li>
-                                            <li>Applied Graph Theory, Game Theory concepts to identify agents' most efficient collaboration form.</li>
-                                            <li>Ran multiple simulations to identify the value of each influecning parameter for reaching the optimal collaboration form.</li>
+                                            <li>Identified the rules agent interaction in a collaborative setting based on Casterfranchi's sociocognitive
+                                            and computational definition of trust.</li>
+
+                                            <li>Developed a new algorithm based on concepts from Graph Theory and Game Theory to identify
+                                            agents' most efficient collaboration form.</li>
+
+                                            <li>Using a known result for greedy AMTSP heuristics, showed that the developed algorithm reaches
+                                            one-third of the optimum (form of colloboration) given that the problem is NP-hard.</li>
+
+                                            <li>Later, created a simple simulation of the designed system in Netlogo and ran multiple simulations
+                                            to identify the value of each influencing parameter for the optimal collaboration form.</li>
+
                                             <li>Prepared a paper based on this research (2021), later published in SN COMPUT. SCI.</li>
                                         </ul>
                                     </li>
